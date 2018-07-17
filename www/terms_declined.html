@@ -1,0 +1,33 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Token Mode</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<div id="app">
+			<header>
+				<div class="navbar">
+				</div>
+			</header>
+			<section>
+				<div class="heading">
+					<p class="info">{{message}}</p>
+					<p>{{message1}}</p>
+				</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Proceed to login" ng-click="confirmLoginWithTokenOption()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

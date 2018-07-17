@@ -1,0 +1,42 @@
+{
+  "name": "gtbworld",
+  "version": "1.1.1",
+  "description": "GTBWorld: An Ionic project",
+  "dependencies": {
+    "@ionic/cloud-angular": "^0.9.1",
+    "angular-moment": "^0.10.3",
+    "gulp": "^3.5.6",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "ionic-native-transitions": "^1.0.0-rc5",
+    "moment": "^2.11.1"
+  },
+  "devDependencies": {
+    "@ionic/cli-plugin-gulp": "1.1.1",
+    "@ionic/cli-plugin-ionic1": "2.1.1",
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard",
+    "cordova-plugin-wkwebview",
+    "phonegap-plugin-push",
+    "ionic-plugin-keyboard@2.0.1",
+    "cordova-plugin-inappbrowser@1.2.1",
+    "phonegap-plugin-barcodescanner",
+    "cordova-plugin-bb-app",
+    "cordova-plugin-device",
+    "cordova.plugins.diagnostic@2.3.11"
+  ],
+  "cordovaPlatforms": [
+    "android",
+    "ios"
+  ]
+}

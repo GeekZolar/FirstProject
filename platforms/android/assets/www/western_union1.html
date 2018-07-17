@@ -1,0 +1,77 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Western Union</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--bills" id="bills">
+						<div class="form__item">
+							<select id="account" ng-model="form.data.ToAccount" ng-class="{'is-filled': form.data.ToAccount}">
+								<optgroup style="font-size:12px;">
+		                <option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+		              </option>
+								</optgroup>
+							</select>
+							<label for="account">Account to Credit</label>
+						</div>
+
+						<div class="form__item">
+							<input type="text" id="mtcn" ng-model="form.data.Mtcn" maxlength="10" ng-class="{'is-filled': form.data.Mtcn}">
+							<label for="mtcn">Enter MTCN:(Must be 10 digits)</label>
+						</div>
+
+						<div class="form__item">
+							<select  id="currency" ng-model="form.data.Currency" ng-disabled="true" ng-class="{'is-filled': form.data.Currency}">
+								<option value="566" selected="selected">NGN</option>
+							</select>
+							<label for="currency">Currency to Receive Payment</label>
+						</div>
+
+						<div class="form__item">
+							<input type="tel" id="expectedAmt" ng-model="form.data.Amount" ng-class="{'is-filled': form.data.Amount}" fcsa-number>
+							<label for="expectedAmt">Expected Amount</label>
+						</div>
+
+						<div class="form__item">
+							<input type="text" id="testAns" ng-model="form.data.WesternUnionAnswer" ng-class="{'is-filled': form.data.WesternUnionAnswer}">
+							<label for="testAns">Western Union Test Answer</label>
+						</div>
+
+						<div class="form__item">
+							<input type="text" id="sendLastName" ng-model="form.data.SenderLastName" ng-class="{'is-filled': form.data.SenderLastName}">
+							<label for="sendLastName">Sender's Last Name</label>
+						</div>
+
+						<div class="form__item">
+							<input type="text" id="sendFirstName" ng-model="form.data.SenderFirstName" ng-class="{'is-filled': form.data.SenderFirstName}">
+							<label for="sendFirstName">Sender's First Name</label>
+						</div>
+
+						<div class="form__item">
+							<select  id="country" ng-model="form.data.SenderCountry" ng-class="{'is-filled': form.data.SenderCountry}">
+								<option value=""></option>
+								<option value="{{x.COUNTRYCODE}}" ng-repeat="x in Countries">{{x.COUNTRY_DESC}}
+							</option>
+							</select>
+							<label for="country">Sender's Country</label>
+						</div>
+
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Continue" ng-click="continue()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

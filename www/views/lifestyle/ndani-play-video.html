@@ -1,0 +1,28 @@
+<ion-view ng-init="loadVideoPlayer()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Play Video</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="content">
+			<div class="item">
+				<div class="video-container">
+						<iframe id="videoFrame" ng-src="{{videoUrl}}" frameborder="0" width="560" height="315"  allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="item">
+				<div class="playlist__col playlist__col--txt" ng-click="playVideo(video)">
+					<div class="inner">
+						<p style="color:#3e4456;font-size: 9px;margin-top:10px;margin-bottom:10px;"><span>{{video.snippet.channelTitle}} - {{video.snippet.publishedAt | date:'MMM d y'}}</span></p>
+						<h3 style="margin: 0;font-size: 12px;color: #3e4456;font-weight: 700;">{{video.snippet.title}}</h3><br>
+						<div class="item-text-wrap"><p>{{video.snippet.description}}</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

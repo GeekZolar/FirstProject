@@ -1,0 +1,74 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Western Union</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+					<!-- <div class="form__item"> Receiver's Details</div> -->
+
+					<div class="form__item">
+						<input type="text" id="lastName" ng-model="form.data.ReceiverSurname" ng-class="{'is-filled': form.data.ReceiverSurname}">
+						<label for="lastName">Your Last Name(Surname)</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="middleName" ng-model="form.data.ReceiverMiddleName" ng-class="{'is-filled': form.data.ReceiverMiddleName}">
+						<label for="middleName">Your Middle Name</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="firstName" ng-model="form.data.ReceiverFirstName" ng-class="{'is-filled': form.data.ReceiverFirstName}">
+						<label for="firstName">Your First Name</label>
+					</div>
+
+					<div class="form__item">
+						<input type="tel" id="testAns" ng-model="form.data.ReceiverMobile" ng-class="{'is-filled': form.data.ReceiverMobile}">
+						<label for="testAns">Mobile Number</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="emailadd" ng-model="form.data.EmailAddress" ng-class="{'is-filled': form.data.EmailAddress}">
+						<label for="emailadd">EmailAddress</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="address" ng-model="form.data.ReceiverAddress" ng-class="{'is-filled': form.data.ReceiverAddress}">
+						<label for="address">Address</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="dob" ng-model="form.data.DateOfBirth" ng-class="{'is-filled': form.data.DateOfBirth}">
+						<label for="dob">Date of Birth</label>
+					</div>
+
+					<div class="form__item">
+						<input type="tel" id="bvn" ng-model="form.data.Bvn" ng-class="{'is-filled': form.data.Bvn}">
+							<label for="bvn">BVN</label>
+					</div>
+
+					<div class="form__item" ng-if="form.useToken == 1">
+						<input type="password" id="secretAnswer" ng-model="form.data.SecretAnswer" autocomplete="off" ng-class="{'is-filled': form.data.SecretAnswer}">
+						<label for="secretAnswer">Secret Answer</label>
+					</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Submit" ng-click="continue()">
+					</div>
+
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

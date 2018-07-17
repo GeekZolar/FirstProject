@@ -1,0 +1,66 @@
+<ion-view ng-init="getMapInit()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ui-sref="dashboard">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">ATM & Branch Locator</div>
+	</ion-header-bar>
+	<ion-content>
+		<img src="assets/img/LocateMap.png" style="height:30%; width:100%;"/>
+	<div id="app" style="padding-right: 0px;padding-left: 0px;">
+		<header>
+			<div class="search" style="top:40px;">
+				<input id = "start-input" type="text" placeholder="Locate a Branch/ATM around" ng-model="data.start" ng-focus="initAutocomplete('start-input')">
+        <button class="btn btn--primary" ng-click="search()">Find</button>
+			</div>
+		</header>
+		<section>
+			<div class="content" style="margin-top: 12%;">
+				<center><h3 class="font-size12 color-black bold-text"> Five(5) Closest Branches/ATM Locations. </h3></center>
+				<center><h3 class="font-size12 color-black bold-text"><i class="material-icons">payment</i> Deposit &nbsp;&nbsp;  <i class="material-icons">subtitles</i> Withdrawal</h3></center>
+					<div class="card" style="margin: 10px 10px;padding-bottom: 0px;" ng-repeat="x in ResponseMessage" ng-click="getDirections('{{x.BranchId}}',$index)">
+						<div class="row no-padding">
+							<div class="col no-padding">
+								<div class="item item-text-wrap color-gtbank">
+									<h3 class="font-size15 color-black bold-text ">{{x.Name | titleCase}}</h3>
+									<div class="font-size12 gtbank-color margin-top10 item-text-wrap">{{x.Address}}</div>
+									<div class="margin-top10">
+											<span class="font-size12 color-grey">{{x.Distance | number:2}}km</span>
+											<span class="float-right font-size12 failure-color" ng-if="x.Resources.length == 0">No ATMs</span>
+											<!-- <span class="float-right font-size12 success-color" ng-if="x.MyAvailable > 0">{{x.MyAvailable}} of {{x.Resources.length}} ATMs Available</span> -->
+											<!-- <span class="float-right font-size12 success-color" ng-if="x.Resources.length > 0">{{x.Resources.length}} ATMs</span> -->
+											<span class="float-right font-size12 success-color" ng-if="x.Resources.length > 0">{{x.Withdrawal}} <i class="material-icons">subtitles</i></span>
+											<span class="float-right font-size12 success-color spanSpacing" ng-if="x.Resources.length > 0">{{x.Deposit}} <i class="material-icons">payment</i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</ion-content>
+<footer>
+	<div class="tab__nav tab__nav--light">
+		<ul>
+			<li>
+				<a ui-sref="dashboard" class="nav__item">Banking</a>
+			</li>
+			<li>
+				<a ui-sref="socials" class="nav__item">Social</a>
+			</li>
+			<li>
+				<a class="nav__item nav__item--is-active">GTLocate</a>
+			</li>
+			<li>
+				<a ui-sref="reportMenu" class="nav__item">iReport</a>
+			</li>
+			<li>
+				<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+			</li>
+		</ul>
+	</div>
+</footer>
+</ion-view>

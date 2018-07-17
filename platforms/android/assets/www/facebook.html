@@ -1,0 +1,71 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark" style="padding-right: 0px;">
+		<div class="navbar__actions" style="width: 100%;">
+			<div class="navbar__action">
+				<button class="navbar__action navbar__action--back" ui-sref="dashboard">
+					<span>Back</span>
+				</button>
+				<a class="button-clear" ui-sref="interest-settings" style="text-decoration:none;padding:8px;color:#fff;float:right;margin-top:5px;">
+					<i class="fa fa-cog" style="font-size:20px;"></i>
+				</a>
+			</div>
+		</div>
+		<div class="navbar__title">Socials</div>
+	</ion-header-bar>
+	<ion-content class="has-header" scroll="false">
+		<div class="button-bar" >
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="socials">News</a>
+			<a class="button bg-white font-size12" style="line-height: 52px;z-index: 1;" >Facebook</a>
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="twitter">Twitter</a>
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="instagram">Instagram</a>
+		</div>
+		<ion-scroll direction="y" style="height: 100%;">
+			<div id="app">
+				<header>
+				</header>
+			<section class="content" style="bottom:0px;">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div ng-repeat="item in items" class="list card">
+            <div class="item item-avatar">
+                <img src="https://graph.facebook.com/{{ item.from.id }}/picture"/>
+                <h2>{{item.from.name}}</h2>
+                <p>{{item.created_time | date:'MMM d, y h:mma'}}</p>
+            </div>
+            <div class="item item-body">
+                <p ng-if="item.story">{{item.story}}</p>
+
+                <p>{{item.message}}</p>
+
+                <img ng-if="item.picture" ng-src="{{ item.picture }}"/>
+
+            </div>
+        </div>
+		</div>
+		</ion-scroll>
+	</ion-content>
+	<footer>
+		<div class="tab__nav tab__nav--light">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item">Banking</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item nav__item--is-active">Socials</a>
+				</li>
+				<li>
+					<a ui-sref="gtlocate" class="nav__item">GTLocate</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

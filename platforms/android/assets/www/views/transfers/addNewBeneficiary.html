@@ -1,0 +1,52 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Add A Beneficiary</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<br>
+			<div id="app">
+        <div class="content">
+         <form  class="form form--register" id="register">
+           <div class="form__item">
+             <select id="transType" ng-model="request.tType" ng-change="getBanks()" ng-class="{'is-filled':request.tType}">
+               <option value="2" ng-selected="true">To GTBank</option>
+               <option value="3">To Other Bank (NIP)</option>
+               <option value="4">To Other Bank (NEFT)</option>
+             </select>
+             <label for="transType">Transfer Type</label>
+           </div>
+
+           <div class="form__item" ng-if="request.tType =='3' || request.tType =='4'" ng-style="{'margin-top:0px':form.new.loading1}">
+             <!-- <ion-spinner icon="ios-small" ng-if="form.new.loading1" style="float:right;"></ion-spinner> -->
+             <select id="banks" ng-model="form.new.DestBankCode" ng-class="{'is-filled': form.new.DestBankCode}">
+               <option value="{{bank.BANKCODE}}" ng-repeat = "bank in banks">{{bank.BANKNAME | titleCase}} </option>
+             </select>
+             <label for="banks">Bank</label>
+           </div>
+
+           <div class="form__item">
+             <input type="tel" id="toAccount" ng-model="form.new.DestAccNumber" autocomplete="off" ng-class="{'is-filled': form.new.DestAccNumber}" maxlength="10" ng-blur="lookUpAccount()">
+             <label for="toAccount">Account Number</label>
+           </div>
+
+           <div class="form__item" ng-style="{'margin-top:0px':form.new.loading}">
+             <!-- <ion-spinner icon="ios-small" ng-if="form.new.loading" style="float:right;"></ion-spinner> -->
+             <input type="text" id="beneficiary" ng-model="form.new.BeneName" autocomplete="off" ng-class="{'is-filled': form.new.BeneName}" disabled="true">
+             <label for="beneficiary">Beneficiary Name</label>
+           </div>
+
+           <div class="form__actions">
+             <input type="submit" class="btn btn--primary" value="Continue" ng-click="doAddNewBeneficiary()">
+           </div>
+
+         </form>
+        </div>
+       </div>
+      </div>
+    </ion-content>
+</ion-view>

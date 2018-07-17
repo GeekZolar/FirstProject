@@ -1,0 +1,105 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark" style="padding-right: 0px;">
+		<div class="navbar__actions" style="width: 100%;">
+			<div class="navbar__action">
+				<button class="navbar__action navbar__action--back" ui-sref="dashboard">
+					<span>Back</span>
+				</button>
+				<a class="button-clear" ui-sref="interest-settings" style="text-decoration:none;padding:8px;color:#fff;float:right;margin-top:5px;">
+					<i class="fa fa-cog" style="font-size:20px;"></i>
+				</a>
+			</div>
+		</div>
+		<div class="navbar__title">Socials</div>
+	</ion-header-bar>
+	<ion-content class="has-header" scroll="false">
+		<div class="button-bar" >
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="socials">News</a>
+			<a class="button bg-gtbank  font-size12" style="line-height: 52px;z-index: 1;" ui-sref="facebook">Facebook</a>
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="twitter">Twitter</a>
+			<a class="button bg-white font-size12" style="line-height: 52px;z-index: 1;">Instagram</a>
+		</div>
+		<ion-scroll direction="y" style="height: 100%;">
+			<div id="app">
+				<header>
+				</header>
+			<section class="content" style="bottom:0px;">
+				<div style="text-align:center;">
+					<br>
+					<ion-spinner icon="spiral" ng-if="!loadingIcon">
+					</ion-spinner>
+				</div>
+				<div ng-if="entries.length>0">
+					<div class="list card no-bottom-margin">
+						<div class="item item-image">
+							<img ng-src="{{firstAdvert}}">
+						</div>
+					</div>
+				</div>
+				<div ng-show="noData" class="card">
+				<div class="item item-image item-text-wrap"><br/>
+				<h3>Oh Snap!</h3>
+				<p>We cannot find any feed at the moment. Please try again later</p>
+				<br/>
+				</div>
+				</div>
+				<div ng-repeat="entry in entries| orderBy:'ourDate':true">
+					<div  ng-if="$index == math.floor(entries.length/2)">
+						<div class="list card no-bottom-margin">
+							<div class="item item-image">
+								<img ng-src="{{secondAdvert}}">
+							</div>
+						</div>
+					</div>
+				<div class="card">
+					<div class="item item-avatar" style="padding-left: 40px;">
+										<i class="circle_icon_pane_dash fa fa-paint-brush font-size16" ng-if="entry.InterestId == 1"></i>
+										<i class="circle_icon_pane_dash fa fa-shopping-cart font-size16" ng-if="entry.InterestId == 2"></i>
+										<i class="circle_icon_pane_dash fa fa-desktop font-size16" ng-if="entry.InterestId == 3"></i>
+										<i class="circle_icon_pane_dash fa fa-android font-size16" ng-if="entry.InterestId == 7"></i>
+										<i class="circle_icon_pane_dash fa fa-futbol-o font-size16" ng-if="entry.InterestId == 8"></i>
+										<i class="circle_icon_pane_dash fa fa-laptop font-size16" ng-if="entry.InterestId == 9"></i>
+										<i class="circle_icon_pane_dash fa fa-comments font-size16" ng-if="entry.InterestId == 11"></i>
+										<i class="circle_icon_pane_dash fa fa-briefcase font-size16" ng-if="entry.InterestId == 12"></i>
+										<i class="circle_icon_pane_dash fa fa-floppy-o font-size16" ng-if="entry.InterestId > 12"></i>
+										<h2>{{entry.InterestName}} </h2>
+										<span style="color:#cccccc;font-size:10px;">{{entry.Description}}</span>
+										<p><span class="" am-time-ago="entry.ourDate"></span></p>
+								</div>
+								<div class="item item-body no-top-padding">
+										<div class="item-text-wrap color-gtbank padding" ng-click="browse('{{entry.link}}')">
+												{{entry.title}}
+										</div>
+										<div ng-controller="ImageController" ng-click="showImage('{{entry.snippetImg}}')">
+												<img class="full-image" ng-src="{{entry.snippetImg}}"/>
+										</div>
+										<p ng-bind-html="entry.contentSnippet"></p>
+								</div>
+						</div>
+				</div>
+			</section>
+		</div>
+		</ion-scroll>
+	</ion-content>
+	<footer>
+		<div class="tab__nav tab__nav--light">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item">Banking</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item nav__item--is-active">Socials</a>
+				</li>
+				<li>
+					<a ui-sref="gtlocate" class="nav__item">GTLocate</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

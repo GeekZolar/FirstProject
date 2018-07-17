@@ -1,0 +1,38 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Change PIN</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+						<div class="form__item">
+							<input type="tel" id="userId" autocomplete="off" maxlength="4" ng-model="data.OldPin" ng-class="{'is-filled':data.OldPin}" style="-webkit-text-security: disc!important;">
+							<label for="userId">Old PIN</label>
+						</div>
+						<div class="form__item">
+							<input type="tel" id="userId" autocomplete="off" maxlength="4" ng-model="data.NewPin" ng-class="{'is-filled':data.NewPin}" style="-webkit-text-security: disc!important;">
+							<label for="userId">New PIN</label>
+						</div>
+						<div class="form__item">
+							<input type="tel" id="userId" autocomplete="off" maxlength="4" ng-model="data.ConfirmPin" ng-class="{'is-filled':data.ConfirmPin}" style="-webkit-text-security: disc!important;">
+							<label for="userId">Confirm New PIN</label>
+						</div>
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Continue" ng-click="changePin()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

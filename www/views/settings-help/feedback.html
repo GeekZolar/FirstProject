@@ -1,0 +1,60 @@
+<ion-view ng-init="feedbackInit()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Feedback</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="feedback">
+
+					<div class="form__item">
+						<input type="tel" id="accountNum" ng-model="fBack.UserId" ng-class="{'is-filled': fBack.UserId}">
+						<label for="accountNum">Account Number</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="cusName" ng-model="fBack.CustomerName" ng-class="{'is-filled': fBack.CustomerName}">
+						<label for="cusName">Customer Name</label>
+					</div>
+
+					<div class="form__item">
+						<input type="tel" id="phoneNum" ng-model="fBack.PhoneNumber" ng-class="{'is-filled': fBack.PhoneNumber}">
+						<label for="phoneNum">Phone Number</label>
+					</div>
+
+					<div class="form__item">
+							<input type="text" id="email" ng-model="fBack.Email" ng-class="{'is-filled': fBack.Email}">
+							<label for="email">Email</label>
+					</div>
+
+					<div class="form__item">
+						<select id="sub" ng-model="fBack.Subject" ng-class="{'is-filled': fBack.Subject}">
+							<option value="{{x.name}}" ng-repeat="x in FeedbackErrorType">{{x.name}}
+						</option>
+						</select>
+						<label for="sub">Subject</label>
+					</div>
+
+					<div class="form__item">
+								<textarea id="message" ng-model="fBack.Message" ng-class="{'is-filled': fBack.Message}"></textarea >
+								<label for="message">Message</label>
+							</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Continue" ng-click="sendFeedback()">
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

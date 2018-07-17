@@ -1,0 +1,26 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Bills History</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<section>
+		<div class="padding">
+			<ul class="history">
+				<li class="history__item" ng-repeat="x in billsHistory | orderBy:'-TRADATE' track by $id(x)">
+					<h3>{{x.HistoryType | titleCase }}
+					</h3>
+					<p>{{x.ProductName | titleCase }}</p>
+					<p>{{x.Amount | currency:"TZS"}}</p>
+					<p>{{x.ResponseMessage | titleCase }}</p>
+					<p>{{x.DateAdded | date:'dd.MM.yyyy'}}</p>
+				</li>
+			</ul>
+		</div>
+</section>
+</ion-content>
+</ion-view>

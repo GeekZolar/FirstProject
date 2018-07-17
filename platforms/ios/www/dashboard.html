@@ -1,0 +1,291 @@
+<ion-view cache-view="false">
+	<ion-nav-bar class="app_dashboard_header nav-title-slide-ios7">
+    <header>
+      <div class="navbar">
+        <div class="navbar__actions" style="margin-top:16px;position: static;z-index: -1;background-color: #fff;">
+          <button class="navbar__action navbar__action--menu" ng-click="initMenuTrigger()" style="margin: -5px;">
+            <span>Menu</span>
+          </button>
+          <button class="navbar__action navbar__action--close navbar__action--is-hidden" ng-click="initMenuTrigger()" style="margin: -5px;">
+            <span>Close</span>
+          </button>
+        </div>
+        <div class="navbar__logo" style="margin-top:18px">
+          <span>GTBank</span>
+        </div>
+      </div>
+    </header>
+  </ion-nav-bar>
+	<ion-content class="dashboard">
+		<div id="app">
+				<header>
+					<div class="account__details" style="margin-top:10px">
+						<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+							<ion-slide ng-repeat="account in accounts">
+								<div class="row" ui-sref="history({historyIndex: data.index})">
+									<!-- <div class="col col-25">
+										<div class="detail detail--overview">
+											<i class="gtbank-color fa fa-info-circle float-right font-size16" style="font-size:20px;"></i>
+										</div>
+									</div> -->
+									<div class="col">
+										<div class="detail detail--overview" style="padding-top:5px;">
+											<p>
+												{{account.ACCOUNTTYPE}}
+												<span style="padding-top: 2px;padding-bottom: 5px;">{{account.NUMBER}}</span>
+											</p>
+											<p class="balance">
+												<b ng-if="account.CURRENCY == 'GHS'" style="color:#dd4f05;font-weight:300;">&#8373; </b>
+											 <b ng-if="account.CURRENCY == 'USD'" style="color:#dd4f05;font-weight:300;">$ </b>
+											 <b ng-if="account.CURRENCY == 'GBP'" style="color:#dd4f05;font-weight:300;">£ </b>
+											 <b ng-if="account.CURRENCY == 'EUR'" style="color:#dd4f05;font-weight:300;">€ </b>
+												{{account.AVAILABLEBALANCE | number:2}}
+											</p>
+										</div>
+									</div>
+								</div>
+								<br>
+							</ion-slide>
+						</ion-slide-box>
+						<ul class="slick-dots" style="display: block;" role="tablist">
+							<li ng-repeat="account in accounts" ng-class="{'slick-active':$index == data.index}" aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation00" id="slick-slide00">
+								<button type="button" data-role="none" role="button" tabindex="0">{{$index}}</button>
+							</li>
+						</ul>
+					</div>
+				</header>
+
+				<nav>
+					<ion-scroll style="position:absolute;" direction="y">
+						<div style="height:{{pageHeight}}px;">
+							<div class="dialog" style="background-color:#fff;padding: 10px;max-width: 100%;overflow-x: hidden;">
+								<div class="account-overview" style="margin-top:0px;padding-top: 10px;">
+										<p style="margin-bottom: 5px;"><b>{{accounts[0].CUSNAME | titleCase}}</b></p>
+										<p ng-if="data.bvn" class="font-size12">BVN: {{data.bvn}}</p>
+								</div>
+								<div class="content__nav">
+									<ul>
+										<!-- <li>
+											<a class="settings gtbank-color"><b>Settings</b></a>
+										</li> -->
+										<!-- <li>
+											<a href="#"><i class="fa fa-toggle-off"></i> Switch to</a>
+											<span class="switch switch--inline switch--abs">
+												<input name="radio" id="radio_on" value="0"  type="radio" ng-checked="data.useToken == 1" ng-click="switchTransactionAuth(1)">
+												<label for="radio_on" class="radioCheck">Token</label>
+												<input name="radio" id="radio_off" value="1" type="radio" ng-checked="data.useToken == 0" ng-click="switchTransactionAuth(0)">
+												<label for="radio_off" class="radioCheck">PIN</label>
+												<a class="slide-button"></a>
+											</span>
+										</li> -->
+										<!-- <li>
+											<a class="settings" ng-click="initMenuTrigger()" ui-sref="change-password-inapp"><i class="fa fa-lock"></i></a>
+										</li> -->
+										<!-- <li ng-if="data.useToken == 0">
+											<a class="settings" ng-click="initMenuTrigger()" ui-sref="change-pin"><i class="fa fa-tty"></i> Change PIN</a>
+										</li> -->
+										<!-- <li>
+											<a class="settings" ng-click="initMenuTrigger()" ui-sref="confirm-token"><i class="fa fa-list-ol"></i> Confirm Token</a>
+										</li> -->
+									</ul>
+									<ul>
+										<li>
+											<a class="settings gtbank-color"><b>Help</b></a>
+										</li>
+										<li>
+											<a  class="settings" ng-click="initMenuTrigger()" ui-sref="faq"><i class="fa fa-question-circle"></i> FAQ</a>
+										</li>
+										<li>
+											<a class="settings" ng-click="initMenuTrigger()" ui-sref="customer-service"><i class="fa fa-mail-reply-all"></i> Customer Service</a>
+										</li>
+										<li>
+											<a class="settings" ng-click="initMenuTrigger()" ui-sref="feedback"><i class="fa fa-comments-o"></i> Feedback &amp; Complaints</a>
+										</li>
+									</ul>
+									<ul>
+										<li style="background-color:transparent;text-align:center;" ng-click="logOut()" >
+											<a style="color:red;"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</ion-scroll>
+				</nav>
+				<section>
+					<div class="payment">
+						<form>
+							<input type="text" placeholder="Search Beneficiary Name or Account" ng-click="showBeneficiaries()" ng-model="data.Beneficiary" ng-disabled="data.DisableTextBox" style="font-size: 12px;">
+							<button class="btn btn--primary" ui-sref="transfer">Start Transfer</button>
+						</form>
+					</div>
+				</section>
+				<section>
+					<ion-scroll direction="x">
+						<div class="row" style="padding-left: 0px;">
+							<!-- <div class="col col-90" style="padding-left: 0px;"> -->
+							<!-- <div class="col col-90" style="padding-left: 0px;"> -->
+								<ul class="quicknav">
+									<li>
+										<a ui-sref="transfer" class="quicknav__item quicknav__item--transfer">
+											<span>Transfer</span>
+										</a>
+									</li>
+									<li>
+										<a ui-sref="bills" class="quicknav__item quicknav__item--bills">
+											<span>Payments</span>
+										</a>
+									</li>
+									<li style="width: 33.4%;">
+										<a ui-sref="requests" class="quicknav__item quicknav__item--request">
+											<span>Requests</span>
+										</a>
+									</li>
+									<!-- <li>
+										<a ui-sref="cards" class="quicknav__item quicknav__item--cards" >
+											<span>Cards</span>
+										</a>
+									</li> -->
+									<li>
+										<a ui-sref="history({historyIndex:0})" class="quicknav__item quicknav__item--request">
+											<span>History</span>
+										</a>
+									</li>
+									<!-- <li>
+										<a ui-sref="loans" class="quicknav__item quicknav__item--loans">
+											<span>Loans</span>
+										</a>
+									</li>
+									<li style="width: 33.4%;">
+										<a ui-sref="savings" class="quicknav__item quicknav__item--loans">
+											<span>Savings</span>
+										</a>
+									</li> -->
+								</ul>
+							<!-- </div> -->
+							<!-- <div class="col col-90">
+								<ul class="quicknav">
+									<li class="no-border">
+										<a ui-sref="history({historyIndex:0})" class="quicknav__item quicknav__item--request">
+											<span>History</span>
+										</a>
+									</li>
+									<li class="no-border">
+										<a  class="quicknav__item">
+											<span></span>
+										</a>
+									</li>
+									<li class="no-border">
+										<a  class="quicknav__item">
+											<span></span>
+										</a>
+									</li>
+									<li class="no-border">
+										<a  class="quicknav__item">
+											<span></span>
+										</a>
+									</li>
+									<li class="no-border">
+										<a  class="quicknav__item">
+											<span></span>
+										</a>
+									</li>
+									<li class="no-border">
+										<a  class="quicknav__item">
+											<span></span>
+										</a>
+									</li>
+								</ul>
+							</div> -->
+						</div>
+					</ion-scroll>
+				</section>
+				<section>
+					<div class="offers">
+						<h3 style="margin-bottom: 0px;">Offers <span>{{data.count}}</span></h3>
+						<h3 style="text-align:center;" ng-if="data.count == 0">No offers to display</h3>
+						<ion-scroll direction="x">
+							<div class="row offers__list no-padding">
+								<div class="col col-50 offers__item no-padding" id="offer_01" ng-repeat= "image in images">
+									<div>
+										<!-- <span class="remove" ng-click="hideAdvert('01')">
+											<span>Remove</span>
+										</span> -->
+										<img ng-src="{{image.url}}" alt="" ng-click="showImage('{{image.url}}')" >
+									</div>
+								</div>
+								<!-- <div class="col col-50 offers__item no-padding" id="offer_02">
+									<div>
+										<span class="remove" ng-click="hideAdvert('02')">
+											<span>Remove</span>
+										</span>
+										<img src="assets/temp/temp_03.png" alt="">
+									</div>
+								</div>
+								<div class="col col-50 offers__item no-padding" id="offer_03">
+									<div>
+										<span class="remove" ng-click="hideAdvert('03')">
+											<span>Remove</span>
+										</span>
+										<img src="assets/temp/temp_02.png" alt="">
+									</div>
+								</div> -->
+							</div>
+		        </ion-scroll>
+					</div>
+				</section>
+				<section>
+					<div class="lifestyle">
+						<h3 style="margin-bottom: 0px;">Lifestyle</h3>
+							<div class="lifestyle__list slick-initialized slick-slider" style="display: inline-block; width:400px">
+									<div aria-live="polite" class="slick-list draggable">
+										<ion-scroll direction="x">
+											<div class="row slick-track" role="listbox" style="width: 518px;">
+												<div class="col col-50 lifestyle__item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 128px;">
+													<a ui-sref="ndani" tabindex="0">
+														<span>
+															<img src="assets/temp/temp_logo02.png" alt="">
+														</span>
+													</a>
+												</div>
+												<div class="col col-50 lifestyle__item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 128px;">
+													<a ng-click="startSmehub()" tabindex="0">
+														<span>
+															<img src="assets/temp/temp_logo04.png" alt="" style="height: 22px;width: 65px;">
+														</span>
+													</a>
+												</div>
+												<div class="col col-50 lifestyle__item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 128px;">
+													<a tabindex="0">
+														<span>
+															<img src="assets/temp/temp_logo03.png" alt="">
+														</span>
+													</a>
+												</div>
+											</div>
+										</ion-scroll>
+									</div>
+								</div>
+							</div>
+				</section>
+      </div>
+	</ion-content>
+	<footer>
+		<div class="tab__nav">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item nav__item--is-active">Banking</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item">Social</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

@@ -1,0 +1,66 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">GTCollections</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+					<div class="form__item">
+						<select name="#" id="collectionTypes" ng-model="form.data.SourceAccount">
+							<option value=""></option>
+							<option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+							</option>
+						</select>
+						<label for="recipient">Select Account</label>
+					</div>
+					<div class="form__item">
+						<select name="#" id="category">
+							<option value=""></option>
+							<option value="1">School Fees Payment</option>
+							<option value="2">Visa Fee Payment</option>
+							<option value="3">Distributor Payments</option>
+						</select>
+						<label for="category">Select a category</label>
+					</div>
+					<div class="form__item">
+						<select name="#" id="category">
+							<option value=""></option>
+							<option value="1">Collections</option>
+						</select>
+						<label for="category">Select a subcategory</label>
+					</div>
+					<div class="form__item">
+						<select name="#" id="biller">
+							<option value=""></option>
+							<option value="1">Starcomms</option>
+						</select>
+						<label for="biller">Collections</label>
+					</div>
+					<div class="form__item">
+						<select name="#" id="product">
+							<option value=""></option>
+							<option value="1">Collections</option>
+						</select>
+						<label for="product">Select a product</label>
+					</div>
+					<div class="form__item">
+						<input type="text" id="mobileNr">
+						<label for="mobileNr">Mobile number</label>
+					</div>
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Done">
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

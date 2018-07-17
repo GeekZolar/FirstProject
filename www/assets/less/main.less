@@ -1,0 +1,438 @@
+// Import *.less files
+
+//@import 'functions.less';
+@import 'variables.less';
+@import 'fonts.less';
+@import 'icons.less';
+@import 'buttons.less';
+@import 'forms.less';
+@import 'dialog.less';
+@import 'map.less';
+@import 'tabs.less';
+@import 'dashboard.less';
+@import 'ndani.less';
+
+
+// Proto for HavasDashboard
+
+
+HTML, BODY { 
+	.mp0;
+	height: 100%;
+	// background: #f7f8f8;
+	font-family: @font-main;
+}
+
+BODY {
+	// background: #f7f8f8;
+	background: #fff;
+	&.home {
+		background: url("@{image-path}/background.jpg") no-repeat center top fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		#app {
+			padding: 20px 15px 15px;
+			.content {
+				padding: 0 0 15px 0;
+			}
+		}
+	}
+	&.dashboard {
+		background: #f7f8f8;
+	}
+	&.dialog-open {
+		overflow: hidden;
+	}
+	&.menu-open {
+		overflow: hidden;
+	}
+}
+
+UL { 
+	.mp0;
+	list-style: none; 
+}
+
+LI { list-style: none; }
+
+IMG { 
+	border: none;
+}
+
+*:focus { 
+	outline: none; 
+}
+
+*, 
+*:before, 
+*:after { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+
+::-webkit-input-placeholder {
+   color: #b3bac2;
+}
+
+:-moz-placeholder { 
+   color: #b3bac2;  
+}
+
+::-moz-placeholder { 
+   color: #b3bac2;  
+}
+
+:-ms-input-placeholder {  
+   color: #b3bac2;  
+}
+
+
+// App
+
+#app {
+	padding: 15px;
+	height: 100%;
+	// padding: 65px 15px 15px;
+	padding: 50px 15px 15px;
+}
+body {
+	&.has-scroll {
+		.start-bottom {
+			.content {
+				padding: 0 0 15px;
+			}
+		}
+	}
+}
+.start-bottom {
+	display: table;
+	height: 100%;
+	width: 100%;
+	// padding: 60px 0 0;
+	.content {
+		display: table-cell;
+		vertical-align: bottom;
+		// padding: 0 0 15px;
+		padding: 0;
+	}
+}
+.heading {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	padding: 0 15px;
+	&--left {
+		text-align: left;
+	}
+	h2 {
+		font-size: 18px;
+		font-weight: @font-main-bold;
+		color: #dd4f05;
+	}
+	h3 {
+		font-size: 15px;
+		color: #b3bac2;
+		font-weight: @font-main-regular;
+	}
+	p {
+		font-size: 14px;
+		margin: 28px 0 0;
+		color: #b3bac2;
+		line-height: 20px;
+		span {
+			display: block;
+			font-size: 12px;
+			color: #b3bac2;
+			font-weight: @font-main-regular;
+			margin: 0 0 10px 0;
+		}
+		&.info {
+			font-size: 15px;
+			color: #3e4456;
+			line-height: 20px;
+		}
+		&.email {
+			color: #dd4f05;
+			font-size: 18px;
+		}
+		&.number {
+			font-size: 20px;
+			color: #3e4456;
+		}
+		&.small {
+			font-size: 12px;
+		}
+		strong {
+			color: #3e4456;
+			font-weight: @font-main-bold;
+		}
+		small {
+			color: #3e4456;
+			font-size: 12px;
+		}
+	}
+}
+header {
+	.slogan {
+		margin: 10px 0 0 0;
+		font-size: 14px;
+		color: #fff;
+	}
+	.logo {
+		display: block;
+		margin: 40px auto 0 auto;
+		width: 96px;
+		height: 70px;
+		background: url("@{image-path}/logo.png") no-repeat;
+		text-indent: -9999px;
+	}
+	.search {
+		position: absolute;
+		z-index: 9999;
+		width: 100%;
+		left: 0;
+		top: 65px;
+		padding: 0 15px;
+		input {
+			width: 100%;
+			border: 2px solid #a9a9a9;
+			font-size: 12px;
+			color: #a9a9a9;
+			height: 35px;
+			padding: 0 10px;
+			background: rgba(255,255,255,0.8);
+			margin: 0 0 8px 0;
+		}
+		&__trigger {
+			position: fixed;
+			bottom: 65px;
+			right: 30px;
+			box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.45);
+			background-color: rgba(221,79,5,0.9);
+			width: 53px;
+			height: 53px;
+			display: block;
+			background-image: url("@{image-path}/search.png");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: 25px 25px;
+			@media @highdensity { 
+				background-image: url("@{image-path}/hires/search.png");
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 25px 25px;
+			}
+			span {
+				display: block;
+				text-indent: -9999px;
+			}
+		}
+	}
+
+}
+
+nav {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #fff;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	.nav {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		padding: 90px 30px 60px 30px;
+		&__list {
+			li {
+				margin: 5px 0 0 0;
+				a {
+					font-size: 12px;
+					color: #dd4f05;
+					padding: 10px 0 10px 45px;
+					text-decoration: none;
+					display: block;
+					&.savings {
+						background-image: url("@{image-path}/icon.png");
+						background-position: center left;
+						background-repeat: no-repeat;
+						background-size: 26px 27px;
+						@media @highdensity { 
+							background-image: url("@{image-path}/hires/icon.png");
+							background-position: center left;
+							background-repeat: no-repeat;
+							background-size: 26px 27px;
+						}
+					}
+					&.request {
+						background-image: url("@{image-path}/icon-1.png");
+						background-position: center left;
+						background-repeat: no-repeat;
+						background-size: 26px 24px;
+						@media @highdensity { 
+							background-image: url("@{image-path}/hires/icon-1.png");
+							background-position: center left;
+							background-repeat: no-repeat;
+							background-size: 26px 24px;
+						}
+					}
+					&.cards {
+						background-image: url("@{image-path}/icon-4.png");
+						background-position: center left;
+						background-repeat: no-repeat;
+						background-size: 26px 21px;
+						@media @highdensity { 
+							background-image: url("@{image-path}/hires/icon-4.png");
+							background-position: center left;
+							background-repeat: no-repeat;
+							background-size: 26px 21px;
+						}
+					}
+					&.transfer {
+						background-image: url("@{image-path}/icon-5.png");
+						background-position: center left;
+						background-repeat: no-repeat;
+						background-size: 26px 23px;
+						@media @highdensity { 
+							background-image: url("@{image-path}/hires/icon-5.png");
+							background-position: center left;
+							background-repeat: no-repeat;
+							background-size: 26px 23px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.navbar {
+	height: 50px;
+	background: #ffffff;
+	position: fixed;
+	width: 100%;
+	padding: 0 15px;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	&--dark {
+		background: #dd4f05;
+		.navbar__action {
+			&--back {
+				.ico(@icon-arrow-back, #fff, 17px, left);
+			}
+		}
+		.navbar__title {
+			color: #fff;
+		}
+	}
+	&__actions {
+		position: relative;
+		z-index: 999;
+	}
+	&__action {
+		background: none;
+		border: none;
+		&--back {
+			height: 50px;
+			width: 50px;
+			margin: 0 0 0 -15px;
+			padding: 0;
+			text-align: center;
+			.ico(@icon-arrow-back, #dd4f05, 17px, left);
+			&:before {
+				display: block;
+				margin: 12px 0 0;			
+			}
+		}
+		&--menu {
+			.ico(@icon-icon-hamburger, #dd4f05, 17px, left);
+			&:before {
+				display: block;
+				margin: 12px 0 0;			
+			}
+		}
+		&--secondary-menu {
+			float: right;
+			width: 40px;
+			text-align: center;
+			margin: 0 -15px 0 0;
+			.ico(@icon-icon-menu, #fff, 17px, left);
+			&:before {
+				display: block;
+				margin: 16px 0 0;			
+			}
+		}
+		&--close {
+			.ico(@icon-icon-close, #dd4f05, 17px, left);
+			&:before {
+				display: block;
+				margin: 12px 0 0 5px;			
+			}
+		}
+		&--is-hidden {
+			display: none;
+		}
+		span {
+			display: block;
+			text-indent: -9999px;
+		}
+	}
+	&__title {
+		font-size: 14px;
+		color: #3e4456;
+		position: absolute;
+		z-index: 998;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		top: 0;
+		left: 0;
+		padding: 16px 30px;
+	}
+	&__logo {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin: 0 0 0 -25px;
+		background-image: url("@{image-path}/logo_colored.png");
+		background-position: right center;
+		background-repeat: no-repeat;
+		background-size: 50px 50px;
+		@media @highdensity { 
+			background-image: url("@{image-path}/hires/logo_colored.png");
+			background-position: right center;
+			background-repeat: no-repeat;
+			background-size: 50px 50px;
+		}
+		span {
+			display: block;
+			text-indent: -9999px;
+		}
+	}
+}
+.signup {
+	.content {
+		// height: calc(~"100vh - 30px");
+		// display: table;
+	}
+}
+
+
+footer {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	height: 35px;
+}

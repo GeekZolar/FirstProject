@@ -1,0 +1,42 @@
+<ion-modal-view on-swipe-down="closeModal()" ng-controller="AddMediaCtrl">
+    <ion-content>
+      <div class="dialog">
+        <div class="dialog__box">
+          <div class="dialog__content">
+            <form>
+              <h2><strong>Add Media</strong></h2>
+              <p><strong>Choose media type</strong></p>
+              <div class="pin" style="margin: 0px 0 0;">
+                <div class="pin__input" >
+                  <div class="row" style="padding-left: 0px;">
+                      <div class="col col-20">
+                          <a style="margin:0px;" class="btn btn-circle btn-lg align-center color-grey" ng-click="choosePhoto()">
+                            <i class="fa fa-image bg-8" style="font-size:20px;padding-top:20px!important;"></i>
+                            <span style="text-align:center;">Gallery</span>
+                          </a>
+                      </div>
+                      <div class="col col-20" style="margin-left: 20px;">
+                          <a style="margin:0px;" class="btn btn-circle btn-lg align-center color-grey" ng-click="takePic()">
+                            <i class="fa fa-camera ion-icon-size bg-9" style="font-size:20px;padding-top:20px;"></i>
+                            <span style="margin-left: 10px;">Photo</span>
+                          </a>
+                      </div>
+                      <div class="col col-20" style="margin-left: 20px;">
+                          <a style="margin:0px;" class="btn btn-circle btn-lg align-center color-grey" ng-click="captureVideo()">
+                            <i class="fa fa-video-camera bg-7" style="font-size:20px;padding-top:20px;"></i>
+                            <span style="margin-left: 10px;">Video</span>
+                          </a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form__actions form__actions--right">
+                <br>
+                <input type="submit" class="btn btn--inline btn--cancel" value="Cancel" ng-click="cancelAuthorization()">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>

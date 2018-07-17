@@ -1,0 +1,29 @@
+<ion-modal-view style="background-color:#fff!important;">
+  <ion-header-bar style="background-image:transparent!important;">
+      <div class="navbar__title-new" ng-click="cancelAuthorization()">Contacts</div>
+      <button class="navbar__action navbar__action--close">
+        <span>Close</span>
+      </button>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon fa fa-search placeholder-icon"></i>
+          <input type="text" placeholder="Type contact name" ng-model="form.searchInput">
+        </label>
+      </div>
+      <div class="padding" ng-if="contact.displayName != '' && contact.phoneNumbers.length !=0" ng-repeat="contact in contacts | contactsfilter:form.searchInput track by $id(contact)">
+				<div class="row">
+					<div class="col">
+						<label class="item item-radio" style="border:0px;margin:0px;" ng-click="cancelAuthorization('{{contact.displayName}}')">
+								<input class="banking-input" type="radio" name="group" value={{contact.phoneNumbers[0].number}} ng-model="form.Others.CustomerMobile"/>
+								<h3 style="text-overflow:ellipsis;overflow:hidden;color:#000;margin:0px;font-weight:600;" >
+									{{contact.displayName}}<br>
+									<span style="font-weight:400;font-size:12px;color:#000;">+255 222 772 533</span>
+								</h3>
+						</label>
+					</div>
+				</div>
+			</div>
+    </ion-content>
+  </ion-modal-view>

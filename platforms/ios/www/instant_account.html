@@ -1,0 +1,67 @@
+<ion-view>
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back-new" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title-new">Open an Instant Account</div>
+	</div>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+
+						<div class="form__item">
+							<input type="tel" id="mobileNumber" autocomplete="off" ng-model="val.MobileNo" ng-class="{'is-filled':val.MobileNo}">
+							<label for="mobileNumber">Mobile number</label>
+						</div>
+						<div class="form__item">
+							<input type="tel" id="bvn" ng-blur="openAccountWithBvn()"maxlength="11" autocomplete="off" ng-model="val.Bvn" ng-class="{'is-filled':val.Bvn}">
+							<label for="bvn">BVN</label>
+						</div>
+						<div class="form__item">
+							<input type="text" id="firstName" autocomplete="off" ng-model="data.FirstName" ng-class="{'is-filled':data.FirstName}">
+							<label for="firstName">First name</label>
+						</div>
+						<div class="form__item">
+							<input type="text" id="lastName" autocomplete="off" ng-model="data.LastName" ng-class="{'is-filled':data.LastName}">
+							<label for="lastName">Last name</label>
+						</div>
+						<div class="form__item">
+							<select id="gender" ng-model="data.Gender" ng-class="{'is-filled':data.Gender}">
+								<option value=""></option>
+								<option value="1" selected="selected">Male</option>
+								<option value="2">Female</option>
+							</select>
+							<label for="gender">Gender</label>
+						</div>
+						<div class="form__item">
+							<input type="date" id="birthDate" ng-model="req.BirthDate" class="is-filled">
+							<label for="birthDate">Birth Date</label>
+						</div>
+						<div class="form__item">
+							<input type="email" id="emailAddress" autocapitalize="none" autocomplete="off" ng-model="data.Email" ng-class="{'is-filled':data.Email}">
+							<label for="emailAddress">Email address</label>
+						</div>
+						<div class="form__item">
+							<input type="text" id="maidenName" autocomplete="off" ng-model="data.MotherMaiden" ng-class="{'is-filled':data.MotherMaiden}">
+							<label for="maidenName">Mother's Maiden Name</label>
+						</div>
+						<div class="form__item">
+							<input type="text" id="address" autocomplete="off" ng-model="data.Address" ng-class="{'is-filled': data.Address}">
+							<label for="address">Address</label>
+						</div>
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Continue" ng-click="openAccount()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

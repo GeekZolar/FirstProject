@@ -1,0 +1,58 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Review</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+
+					<div ng-repeat="x in formReview track by $index">
+													<div ng-if="x.amt_ref == 0">
+															<div class="mb item mb-item-divider no-top-border">
+																	<p class="font-size14-m">{{x.field_caption | uppercase}}:</p>
+															</div>
+															<label class="mb item item-input">
+																	<input  class="banking-input" type="text" id="{{x.field_id}}" ng-disabled="true" name={{x.field_name}} placeholder={{x.field_caption}} maxlength={{x.field_length}} value={{x.actual_value}} style="width:100%"/>
+															</label>
+													</div>
+
+													<div ng-if="x.amt_ref == 1">
+															<div class="mb item mb-item-divider no-top-border">
+																	<p class="font-size14-m">{{x.field_caption | uppercase}}:</p>
+															</div>
+															<label class="mb item item-input">
+																	<input  class="banking-input" type="text" id="{{x.field_id}}" ng-disabled="true" name={{x.field_name}} placeholder={{x.field_caption}} maxlength={{x.field_length}} value={{x.actual_value}} style="width:100%"/>
+															</label>
+													</div>
+											</div>
+
+									<div class="form__item">
+											 <input type="tel" id="remarks" ng-model="form.data.Remarks" ng-class="{'is-filled': form.data.Remarks}">
+											<label for="remarks">Remarks</label>
+											</div>
+
+											<div class="form__item" ng-if="form.useToken == 1">
+												<input type="password" id="secretAnswer" ng-model="form.Others.SecretAnswer" autocomplete="off" ng-class="{'is-filled': form.Others.SecretAnswer}">
+												<label for="secretAnswer">Secret Answer</label>
+											</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Submit" ng-click="continue()">
+					</div>
+
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

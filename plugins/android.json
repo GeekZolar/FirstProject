@@ -1,0 +1,99 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.dawsonloudon.videoplayer": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "com.dbaq.cordova.contactsPhoneNumbers": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "com.synconset.imagepicker": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-email-composer": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-request-location-accuracy": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "phonegap-plugin-push": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-crosswalk-webview": {
+      "XWALK_VERSION": "23+",
+      "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+      "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+      "XWALK_MODE": "embedded",
+      "XWALK_MULTIPLEAPK": "true",
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    },
+    "cordova-plugin-webserver": {
+      "PACKAGE_NAME": "com.gtbank.gtworldghana"
+    }
+  }
+}

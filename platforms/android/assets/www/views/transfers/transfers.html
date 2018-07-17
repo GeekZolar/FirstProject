@@ -1,0 +1,151 @@
+<!-- <ion-view >
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="goBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Transfers</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+			<div id="app">
+				<header>
+				</header>
+				<section  class="start-bottom">
+					<div class="content">
+
+						<form  class="form form--register" id="register">
+							<div class="form__item">
+								<select id="transType" ng-model="request.TransType" ng-change="showOtherFields()"
+								ng-class="{'is-filled':request.TransType}">
+									<option value="1">Own Account</option>
+									<option value="2">To GTBank</option>
+									<option value="3">To Other Bank (NIP)</option>
+									<option value="4">To Other Bank (NEFT)</option>
+								</select>
+								<label for="transType">Transfer Type</label>
+							</div>
+
+							<div class="form__item">
+								<select id="recipient" ng-init="loadAccountToDebit()" ng-model="form.data.SourceAccount"  ng-class="{'is-filled':form.data.SourceAccount}" ng-change="loadAccountToCredit()">
+									<option value="{{x.Nuban}}" ng-repeat="x in accountsToDebit | glNairaAccounts">{{x.Nuban}}( {{x.Currency}} {{x.AvailableBalance}} )
+								</option>
+								</select>
+								<label for="recipient">From Account</label>
+							</div>
+
+							<div class="form__item" ng-if="!notOwnAccount">
+								<select id="toAccount" ng-model="form.data.DestAccount" ng-click="loadAccountToCredit()" ng-class="{'is-filled':form.data.DestAccount}">
+									<option value="{{x.Nuban}}" ng-repeat="x in accountsToCredit | glNairaAccounts" ng-disabled="form.data.SourceAccount == x.Nuban">{{x.Nuban}}( {{x.Currency}} {{x.AvailableBalance}} )
+								</option>
+								</select>
+								<label for="toAccount">To Account</label>
+							</div>
+
+							<div class="form__item" ng-if="notOwnAccount">
+								<input type="text" id="beneficiary" ng-model= "form.Name" autocomplete="off" ng-class="{'is-filled': form.Name}" ng-click="getBeneficiary()" ng-disabled="form.DisableTextBox">
+								<label for="beneficiary">Beneficiary</label>
+							</div>
+
+							<div class="form__item" ng-if="notOwnAccount">
+								<input type="tel" id="recipientOthers" ng-model= "form.data.DestAccount" autocomplete="off" disabled="true" ng-class="{'is-filled': form.data.DestAccount}">
+								<label for="recipientOthers">To Account</label>
+							</div>
+
+							<div class="form__item">
+								<input type="tel" id="amount" class="currency" ng-model="form.data.Amount" autocomplete="off" ng-class="{'is-filled': form.data.Amount}">
+								<label for="amount">Amount</label>
+							</div>
+
+							<div class="form__item">
+								<textarea id="remarks" ng-model="form.data.Remarks" ng-class="{'is-filled': form.data.Remarks}"></textarea >
+								<label for="remarks">Remarks</label>
+							</div>
+
+							<div class="form__actions">
+								<button type="submit" class="btn btn--primary" value="Continue" ng-click="Transfer()">Continue</button>
+							</div>
+
+						</form>
+					</div>
+				</section>
+			</div>
+	</ion-content>
+</ion-view> -->
+
+
+<ion-view >
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="goBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Transfers</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<br>
+			<div id="app" style="padding: 20px 15px 15px;">
+				<header>
+				</header>
+				<section>
+					<div class="content">
+
+						<form  class="form form--register" id="register">
+							<div class="form__item">
+								<select id="transType" ng-model="request.TransType" ng-change="showOtherFields()"
+								ng-class="{'is-filled':request.TransType}">
+									<option value="1">Own Account</option>
+									<option value="2">To GTBank</option>
+									<option value="3">To Other Bank (NIP)</option>
+									<option value="4">To Other Bank (NEFT)</option>
+								</select>
+								<label for="transType">Transfer Type</label>
+							</div>
+
+							<div class="form__item">
+								<select id="recipient" ng-init="loadAccountToDebit()" ng-model="form.data.SourceAccount"  ng-class="{'is-filled':form.data.SourceAccount}" ng-change="loadAccountToCredit()">
+									<option value="{{x.Nuban}}" ng-repeat="x in accountsToDebit | glNairaAccounts">{{x.Nuban}}( {{x.Currency}} {{x.AvailableBalance}} )
+								</option>
+								</select>
+								<label for="recipient">From Account</label>
+							</div>
+
+							<div class="form__item" ng-if="!notOwnAccount">
+								<select id="toAccount" ng-model="form.data.DestAccount" ng-click="loadAccountToCredit()" ng-class="{'is-filled':form.data.DestAccount}">
+									<option value="{{x.Nuban}}" ng-repeat="x in accountsToCredit | glNairaAccounts" ng-disabled="form.data.SourceAccount == x.Nuban">{{x.Nuban}}( {{x.Currency}} {{x.AvailableBalance}} )
+								</option>
+								</select>
+								<label for="toAccount">To Account</label>
+							</div>
+
+							<div class="form__item" ng-if="notOwnAccount">
+								<input type="text" id="beneficiary" ng-model= "form.Name" autocomplete="off" ng-class="{'is-filled': form.Name}" ng-click="getBeneficiary()" ng-disabled="form.DisableTextBox">
+								<label for="beneficiary">Beneficiary</label>
+							</div>
+
+							<div class="form__item" ng-if="notOwnAccount">
+								<input type="tel" id="recipientOthers" ng-model= "form.data.DestAccount" autocomplete="off" disabled="true" ng-class="{'is-filled': form.data.DestAccount}">
+								<label for="recipientOthers">To Account</label>
+							</div>
+
+							<div class="form__item">
+								<input type="tel" id="amount" class="currency" ng-model="form.data.Amount" autocomplete="off" ng-class="{'is-filled': form.data.Amount}">
+								<label for="amount">Amount</label>
+							</div>
+
+							<div class="form__item">
+								<textarea id="remarks" ng-model="form.data.Remarks" ng-class="{'is-filled': form.data.Remarks}"></textarea >
+								<label for="remarks">Remarks</label>
+							</div>
+
+							<div class="form__actions">
+								<button type="submit" class="btn btn--primary" value="Continue" ng-click="Transfer()">Continue</button>
+							</div>
+
+						</form>
+					</div>
+				</section>
+			</div>
+	</ion-content>
+</ion-view>

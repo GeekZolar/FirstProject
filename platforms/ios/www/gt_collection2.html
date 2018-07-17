@@ -1,0 +1,60 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">GTCollections</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section class="start-bottom">
+
+				<div class="content">
+					<form class="form form--bills" id="bills">
+
+						<div ng-repeat="x in Forms track by $index">
+														<div ng-if="x.field_type == 2 && x.read_only == 0">
+																<div class="mb item mb-item-divider no-top-border">
+																		<p class="font-size14-m">{{x.field_caption | uppercase}}:</p>
+																		<label class="mb item item-input">
+																				<input  class="banking-input" type="text" id="{{x.field_id}}" name={{x.field_name}} placeholder={{x.field_caption}} maxlength={{x.field_length}} value={{x.actual_value}} style="width:100%"/>
+																		</label>
+																</div>
+
+														</div>
+
+														<div ng-if="x.field_type == 3 && x.read_only == 0">
+																<div class="mb item mb-item-divider no-top-border">
+																		<p class="font-size14-m">{{x.field_caption | uppercase}}:</p>
+																		<label class="mb item item-input">
+																				<input  class="banking-input" type="text" id="{{x.field_id}}" name={{x.field_name}} placeholder={{x.field_date_format|uppercase}} maxlength={{x.field_length}} value={{x.actual_value}} style="width:100%"/>
+																		</label>
+																</div>
+
+														</div>
+
+														<div ng-if="x.field_type == 1 && x.read_only == 0">
+																<div class="mb item mb-item-divider no-top-border">
+																		<p class="font-size14-m">{{x.field_caption | uppercase}}:</p>
+																		<select  ng-model="optionValue" class="mb item item-input color-black font-size14 g-dropdown margin10"
+																						 ng-options="option as option.lov_text for option in x.lov_details.lov_detail"
+																						 id="{{x.field_id}}" ng-change="saveOption(optionValue.lov_value,'{{x.field_id}}')">
+																		</select>
+																</div>
+
+														</div>
+												</div>
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Submit" ng-click="continue()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

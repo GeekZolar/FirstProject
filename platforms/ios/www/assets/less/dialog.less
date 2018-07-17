@@ -1,0 +1,72 @@
+// Dialog
+
+.dialog {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 99999;
+	background: rgba(247,248,248,0.90);
+	overflow: auto;
+	&__box {
+		width: 250px;
+		// min-height: 230px;
+		background: #fff;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: 0 0 0 -125px;
+		box-shadow: 0px 5px 51px 0px rgba(0, 0, 0, 0.15);
+		z-index: 9999;
+		padding: 18px;
+		.clear();
+	}
+	&__content {
+		position: relative;
+		h2 {
+			margin: 10px 0 0;
+			font-size: 15px;
+			color: #3e4456;
+		}
+		p {
+			margin: 18px 0 0;
+			font-size: 12px;
+			color: #3e4456;
+		}
+		.form__actions {
+			&--nopadding {
+				margin: 25px 0 -18px -18px !important;
+				bottom: 16px;
+				width: 250px;
+				position: relative;
+				float: left;
+			}
+		}
+	}
+	.pin {
+		position: relative;
+		// margin: 0 0 0 -5px;
+		float: left;
+		margin: 46px 0 0;
+		&__overlay {
+			width: 100%;
+			height: 30px;
+			position: absolute;
+			pointer-events: none;
+		}
+		&__input {
+			input {
+				float: left;
+				width: 45px;
+				border-bottom: 1px solid;
+				margin: 0 0 0 11px;
+				text-align: center;
+				line-height: 27px;
+				&:first-child {
+					margin: 0;
+				}
+			}
+		}
+	}
+}

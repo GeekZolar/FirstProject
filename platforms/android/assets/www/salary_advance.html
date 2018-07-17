@@ -1,0 +1,161 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Salary Advance Request</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+
+					<div class="form__item">
+						<select id="chargeAcc" ng-model="form.data.DestAccNumber" ng-class="{'is-filled': form.data.DestAccNumber}">
+							<optgroup style="font-size:12px;">
+								<option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+								</option>
+							</optgroup>
+						</select>
+						<label for="chargeAcc">Account To Credit</label>
+					</div>
+
+          <div class="form__item">
+            <input type="tel" id="amount" class="currency" ng-model="form.data.Amount" autocomplete="off" ng-class="{'is-filled': form.data.Amount}" fcsa-number>
+            <label for="amount">Loan Amount</label>
+          </div>
+
+          <!-- <div class="form__item">
+						<input type="tel" id="EliAmount" class="currency" ng-model="data.EligibleAmount" autocomplete="off" ng-class="{'is-filled': data.EligibleAmount}" fcsa-number disabled="disabled">
+						<label for="EliAmount">Eligible Amount(NGN)</label>
+					</div>
+
+          <div class="form__item">
+            <select id="tenor" ng-model="form.data.TenorDay" ng-class="{'is-filled': form.data.TenorDay}">
+              <option value="30">30</option>
+              <option value="180">180</option>
+            </select>
+            <label for="tenor">Tenor(in days)</label>
+          </div>
+
+					<div class="form__item">
+						<input type="text" id="EmpName" ng-model="form.data.EmployersName" autocomplete="off" ng-class="{'is-filled': form.data.EmployersName}">
+						<label for="EmpName">Employer's Name</label>
+					</div>
+
+          <div class="form__item">
+            <input type="text" id="EmpAdd" ng-model="form.data.EmployersAddress" autocomplete="off" ng-class="{'is-filled': form.data.EmployersAddress}">
+            <label for="EmpAdd">Employer's Address</label>
+          </div>
+
+          <div class="form__item">
+            <select id="EmpSector" ng-model="form.value.EmploymentSector" ng-class="{'is-filled': form.value.EmploymentSector}">
+              <option value="Federal">Federal</option>
+              <option value="State">State</option>
+              <option value="Local">Local</option>
+              <option value="Private">Private</option>
+            </select>
+            <label for="EmpSector">Employment Sector</label>
+          </div>
+
+          <div class="form__item">
+            <select id="EmpStatus" ng-model="form.data.EmploymentStatus" ng-class="{'is-filled': form.data.EmploymentStatus}">
+              <option value="Contract">Contract</option>
+              <option value="Confirmed Full Staff">Confirmed Full Staff</option>
+              <option value="Unconfirmed Full Staff">Unconfirmed Full Staff</option>
+            </select>
+            <label for="EmpStatus">Employment Status</label>
+          </div>
+
+          <div class="form__item">
+            <input type="text" id="JobDes" ng-model="form.data.JobDescription" autocomplete="off" ng-class="{'is-filled': form.data.JobDescription}">
+            <label for="JobDes">Job Designation</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="LosY" ng-model="form.data.LengthServiceInYears" autocomplete="off" ng-class="{'is-filled': form.data.LengthServiceInYears}">
+            <label for="LosY">Length of Service(Years)</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="LosM" ng-model="form.data.LengthServiceInMonths" autocomplete="off" ng-class="{'is-filled': form.data.LengthServiceInMonths}">
+            <label for="LosM">Length of Service(Months)</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="MonthlySalary" class="currency" ng-model="form.data.NetMonthlySalary" autocomplete="off" ng-class="{'is-filled': form.data.NetMonthlySalary}" fcsa-number>
+            <label for="MonthlySalary">Net Monthly Salary</label>
+          </div>
+
+          <div class="form__item">
+            <select id="Currency" ng-model="form.data.CurrencySalary" ng-class="{'is-filled': form.data.CurrencySalary}">
+              <option value="NGN">NGN</option>
+            </select>
+            <label for="Currency">Currency Salary is Paid in</label>
+          </div>
+
+          <div class="form__item">
+            <input type="date" id="SalaryDay" ng-model="form.value.Date" ng-class="{'is-filled': form.value.Date}">
+            <label for="SalaryDay">Next Salary Pay Day</label>
+          </div>
+
+          <div class="form__item">
+            <select id="SalFreq" ng-model="form.data.SalaryFreqMonth" ng-class="{'is-filled': form.data.SalaryFreqMonth}">
+              <option value="1">Once</option>
+              <option value="2">Twice</option>
+              <option value="3">Thrice</option>
+            </select>
+            <label for="SalFreq">Frequency of Salary per month</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="GrossSalary" class="currency" ng-model="form.data.GrossAnnualSalary" autocomplete="off" ng-class="{'is-filled': form.data.GrossAnnualSalary}" fcsa-number>
+            <label for="GrossSalary">Gross Annual Salary</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="NetSalary" class="currency" ng-model="form.data.NetAnnualSalary" autocomplete="off" ng-class="{'is-filled': form.data.NetAnnualSalary}" fcsa-number>
+            <label for="NetSalary">Net Annual Salary</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="UpfrontPay" class="currency" ng-model="form.data.YearlyUpfront" autocomplete="off" ng-class="{'is-filled': form.data.YearlyUpfront}" fcsa-number>
+            <label for="UpfrontPay">Yearly Upfront Payment</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="QuaPay" class="currency" ng-model="form.data.QuarterlyAllowance" autocomplete="off" ng-class="{'is-filled': form.data.QuarterlyAllowance}" fcsa-number>
+            <label for="QuaPay">Quaterly Allowance</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="LastNet" class="currency" ng-model="form.data.LastNetMonthSalary" autocomplete="off" ng-class="{'is-filled': form.data.LastNetMonthSalary}" fcsa-number>
+            <label for="LastNet">Last Net Month Salary</label>
+          </div>
+
+          <div class="form__item">
+            <input type="tel" id="Bvn" ng-model="form.value.Bvn" autocomplete="off" ng-class="{'is-filled': form.value.Bvn}">
+            <label for="Bvn">BVN</label>
+          </div> -->
+
+					<div class="form__item" ng-if="form.useToken == 1">
+						<input type="password" id="secretAnswer" ng-model="form.data.SecretAnswer" autocomplete="off" ng-class="{'is-filled': form.data.SecretAnswer}">
+						<label for="secretAnswer">Secret Answer</label>
+					</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Continue" ng-click="enableAuthorization()">
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

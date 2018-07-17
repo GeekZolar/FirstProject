@@ -1,0 +1,82 @@
+
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Transaction Details</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+	<div id="app" style="padding: 0px 0px 15px;">
+		<header>
+
+		</header>
+		<section>
+      <div class="list no-margin no-padding no-border">
+            <div class="item mb-item-divider padd-15  align-center" style="background-color:#008000!important;"ng-if="historyDetail.TRASTATUS == 'CRE'">
+                <!-- <h5 class="font-size16 color-white no-margin" ng-if="historyDetail.TRASTATUS == 'DEB'">Debit Transfer</h5> -->
+                <h5 class="font-size16 color-white no-margin" ng-if="historyDetail.TRASTATUS == 'CRE'">Credit Transfer</h5>
+                <h1 class="color-white no-margin align-center">
+                        <span ng-if="currency == 'NGN'">&#8373; </span>
+                        <span ng-if="currency == 'USD'">$ </span>
+                        <span ng-if="currency == 'GBP'">£ </span>
+                        <span ng-if="currency == 'EUR'">€ </span>
+                        {{historyDetail.TRAAMT | number:2}}
+                      </h1>
+                <h5 class="font-size16 color-white no-margin"><i class="material-icons font-size20">today</i>{{historyDetail.TRADATE| date : "MMMM d, y" }}</h5>
+            </div>
+						<div class="item mb-item-divider padd-15  align-center" style="background-color:#FF1414!important;" ng-if="historyDetail.TRASTATUS == 'DEB'">
+                <h5 class="font-size16 color-white no-margin" ng-if="historyDetail.TRASTATUS == 'DEB'">Debit Transfer</h5>
+                <!-- <h5 class="font-size16 color-white no-margin" ng-if="historyDetail.TRASTATUS == 'CRE'">Credit Transfer</h5> -->
+                <h1 class="color-white no-margin align-center">
+                        <span ng-if="currency == 'NGN'">&#8373; </span>
+                        <span ng-if="currency == 'USD'">$ </span>
+                        <span ng-if="currency == 'GBP'">£ </span>
+                        <span ng-if="currency == 'EUR'">€ </span>
+                        {{historyDetail.TRAAMT | number:2}}
+                      </h1>
+                <h5 class="font-size16 color-white no-margin"><i class="material-icons font-size20">today</i>{{historyDetail.TRADATE}}</h5>
+            </div>
+
+        </div>
+        <div class="list no-margin">
+            <div class="item mb-item-divider font-size16 color-grey no-bottom-border">
+                TRANSACTION TYPE
+            </div>
+            <a class="item   no-bottom-border">
+                <i class="material-icons float-left color-gtbank font-size20"> loop </i><span
+                    class="color-black font-size16 margin10 item-text-wrap"> &nbsp;&nbsp;{{historyDetail.TRANSTYPE}}</span>
+            </a>
+        </div>
+        <div class="list no-margin" ng-if="historyDetail.CHANNEL !=''">
+            <div class="item mb-item-divider font-size16 color-grey no-bottom-border">
+                CHANNEL
+            </div>
+            <a class="item no-bottom-border">
+                <i class="material-icons float-left color-gtbank font-size20"> group_work </i><span class="color-black font-size16 margin10 item-text-wrap">  &nbsp;&nbsp;{{historyDetail.CHANNEL}}</span>
+            </a>
+        </div>
+        <div class="list no-margin no-bottom-border">
+            <div class="item mb-item-divider font-size16 color-grey">
+                BRANCH
+            </div>
+            <a class="item  no-bottom-border">
+                <i class="material-icons float-left color-gtbank font-size20"> room </i><span
+                    class="color-black font-size16 margin10 item-text-wrap">&nbsp;&nbsp;{{historyDetail.TRABRANCH}}</span>
+            </a>
+        </div>
+        <div class="list no-margin">
+            <div class="item mb-item-divider font-size16 color-grey no-bottom-border">
+                REMARKS
+            </div>
+            <a class="item">
+                <i class="material-icons color-gtbank font-size20"> comment </i><span
+                    class="color-black font-size16 margin10 item-text-wrap" style="line-height:1.5 !important;">&nbsp;&nbsp;{{historyDetail.REMARKS}}</span>
+            </a>
+        </div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

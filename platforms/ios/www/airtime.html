@@ -1,0 +1,111 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Airtime</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<br>
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+					<div class="form__item">
+						<select id="airtime" ng-model="form.data.SourceAccount" ng-class="{'is-filled': form.data.SourceAccount}">
+							<option value="{{x.NUMBER}}" ng-repeat="x in thirdPartyAccToDebit">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+						</option>
+						</select>
+						<label for="airtime">From account</label>
+					</div>
+					<div class="form__item">
+						<select id="category" ng-model="request.CatType" ng-change="getCategory()" ng-class="{'is-filled': request.CatType}">
+							<option value="1" selected="selected">Mobile Top-up</option>
+							<!-- <option value="2">Data Bundles</option> -->
+						</select>
+						<label for="category">Select a category</label>
+					</div>
+					<div class="form__item" style="margin: 15px 0 0;">
+						<div class="row">
+							<div class="col-90">
+								<input type="tel" id="mobileNr" ng-model="form.Others.CustomerMobile" autocomplete="off" ng-class="{'is-filled': form.Others.CustomerMobile}" >
+								<label for="mobileNr">Mobile number</label>
+							</div>
+							<div class="col" ng-click="loadContacts()">
+								<i class="fa fa-phone-square fa-2x" style="color:#dd4f05;"></i>
+							</div>
+						</div>
+					</div>
+					<div class="form__item" ng-if="!showDataBundle">
+						<select id="utilityName" ng-model="productId.Airtime" ng-change="getDataBundleTypes()" ng-class="{'is-filled': productId.Airtime}">
+							<option value="TOP">Vodacom</option>
+							<option value="TOP">Tigo</option>
+							<option value="TOP">Airtel</option>
+							<option value="TOP">Smart</option>
+							<option value="TOP">Halotel</option>
+							<option value="TOP">Zantel</option>
+						</select>
+						<label for="utilityName">Select a network</label>
+					</div>
+
+					<div class="form__item" ng-if="showDataBundle">
+						<select id="utilityName" ng-model="productId.Airtime" ng-change="getDataBundleTypes()" ng-class="{'is-filled': productId.Airtime}">
+							<!-- <option value="62001">MTN Bundle</option>
+							<option value="62001">MTN Broadband</option> -->
+							<option value="5001">Surfline</option>
+						</select>
+						<label for="utilityName">Select a network</label>
+					</div>
+
+					<div class="form__item" ng-if="showDataBundle">
+						<select id="bundle" ng-change="getAmount()" ng-model="productId.Data" ng-class="{'is-filled': productId.Data}">
+							<option value=""></option>
+							<option value="{{s.BUNDLE}}" ng-repeat="s in bundles">{{s.NAME}}
+							</option>
+						</select>
+						<label for="bundle">Available Bundles</label>
+					</div>
+
+					<!-- <div class="form__item">
+						<input type="tel" id="amount" ng-model="form.Others.Amount" autocomplete="off" ng-disabled="disableAmount" ng-class="{'is-filled': form.Others.Amount}" fcsa-number>
+						<label for="amount">Amount</label>
+					</div> -->
+
+					<div class="form__item">
+						<select id="Amount" ng-model="form.Others.Amount" ng-disabled="disableAmount" ng-class="{'is-filled': form.Others.Amount}">
+							<option>1000</option>
+							<option>2000</option>
+							<option>5000</option>
+							<option>10000</option>
+							<option>20000</option>
+							<option>30000</option>
+						</select>
+						<label for="utilityName">Select an Amount</label>
+					</div>
+
+					<div class="form__item" ng-if="form.BeneName !=undefined && form.Others.CustomerMobile">
+						<input type="text" id="displayName" ng-model="form.BeneName" autocomplete="off" ng-class="{'is-filled': form.BeneName}">
+						<label for="displayName">Beneficiary Name</label>
+					</div>
+
+
+
+					<div class="form__item" ng-if="form.useToken == 1">
+						<input type="password" id="secretAnswer" ng-model="form.Others.SecretAnswer" autocomplete="off" ng-class="{'is-filled': form.Others.SecretAnswer}">
+						<label for="secretAnswer">Secret Answer</label>
+					</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Continue" ng-click="continue()">
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

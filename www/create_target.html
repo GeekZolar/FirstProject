@@ -1,0 +1,68 @@
+</ion-view>
+<ion-header-bar class="bar-positive navbar navbar--dark">
+ <div class="navbar__actions">
+  <button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+   <span>Back</span>
+  </button>
+ </div>
+ <div class="navbar__title">Create GT Target Acount</div>
+</ion-header-bar>
+<ion-content class="has-header">
+  <input type="text" disabled="disabled">
+  <div id="app">
+    <header>
+    </header>
+    <section class="padding">
+      <div class="form__item">
+        <input type="text" id="targetName" ng-model="form.data.TargetName" autocomplete="off" ng-class="{'is-filled': form.data.TargetName}">
+        <label for="targetName">Target Name</label>
+      </div>
+        <div class="form__item">
+          <select id="recipient" ng-model="form.Others.AccountToDebit" ng-class="{'is-filled':form.Others.AccountToDebit}">
+            <optgroup style="font-size:12px;">
+                <option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+              </option>
+            </optgroup>
+          </select>
+          <label for="recipient">From Account</label>
+        </div>
+        <div class="form__item">
+          <input type="date" id="from" ng-model="form.req.StartDate" ng-class="{'is-filled': form.req.StartDate}">
+          <label for="from">Start Date</label>
+        </div>
+        <div class="form__item">
+          <input type="date" id="to" ng-model="form.req.EndDate" ng-class="{'is-filled':form.req.EndDate}">
+          <label for="to">End Date</label>
+        </div>
+        <div class="form__item">
+          <input type="tel" id="amount" class="currency no-currency-icon" ng-model="form.Others.Amount" autocomplete="off" ng-class="{'is-filled': form.Others.Amount}" fcsa-number>
+          <label for="amount">Amount<span>TZS</span</label>
+        </div>
+
+        <div class="form__item">
+          <select id="recipient" ng-model="form.data.Frequency" ng-class="{'is-filled':form.data.Frequency}">
+
+              <option value="4">30 Days</option>
+              <option value="5">3 Months</option>
+                <option value="6">6 Months</option>
+
+          </select>
+          <label for="recipient">Frequency</label>
+        </div>
+
+        <div class="form__item" ng-if="form.useToken == 1">
+          <input type="password" id="secretAnswer" ng-model="form.Others.SecretAnswer" autocomplete="off" ng-class="{'is-filled': form.Others.SecretAnswer}">
+          <label for="secretAnswer">Secret Answer</label>
+        </div>
+
+        <div class="form__item">
+          <textarea id="remarks" ng-model="form.data.Remarks" ng-class="{'is-filled': form.data.Remarks}"></textarea >
+          <label for="remarks">Remarks</label>
+        </div>
+        <div class="form__actions">
+          <input type="submit" class="btn btn--primary" value="Continue" ng-click="Submit()">
+        </div>
+      </section>
+    </div>
+</ion-content>
+</ion-view>

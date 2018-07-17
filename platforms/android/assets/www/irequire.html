@@ -1,0 +1,118 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">iRequire</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+
+					<div class="form__item">
+						<select id="reqType" ng-model="form.RequestTypeId" ng-class="{'is-filled': form.RequestTypeId}" ng-change="setRequestTypeId()">
+							<option value="{{x.Request_ID}}" ng-repeat="x in requestTypes">{{x.RequestType | titleCase}}
+							</option>
+						</select>
+						<label for="reqType">Request Type</label>
+					</div>
+
+					<div class="form__item" ng-if="form.chargeAcc">
+						<select id="chargeAcc" ng-model="data.ChargeAcc" ng-class="{'is-filled': data.ChargeAcc}">
+							<optgroup style="font-size:12px;">
+								<option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+								</option>
+							</optgroup>
+						</select>
+						<label for="chargeAcc">Account To Charge</label>
+					</div>
+
+					<div class="form__item" ng-if="form.amount">
+						<input type="tel" id="amount" class="currency no-currency-icon" ng-model="form.Others.TransactionAmount" autocomplete="off" ng-class="{'is-filled': form.Others.TransactionAmount}" fcsa-number>
+						<label for="amount">Amount<span>TZS</span></label>
+					</div>
+
+					<div class="form__item" ng-if="form.preferredBranch">
+						<select id="preferredBranch" ng-model="data.PreferredBranch" ng-class="{'is-filled': data.PreferredBranch}">
+							<option value="{{x.Branch_Code}}" ng-repeat="x in preferredBranches">{{x.Branch_Name | titleCase}}
+							</option>
+						</select>
+						<label for="preferredBranch">Preferred Branch</label>
+					</div>
+
+					<div class="form__item">
+						<input type="text" id="pickUpName" ng-model="form.Others.PickName" autocomplete="off" ng-class="{'is-filled': form.Others.PickName}">
+						<label for="pickUpName">Pick Up Name</label>
+					</div>
+
+					<div class="form__item" ng-if="form.meansId">
+						<select id="meansId" ng-model="data.MeansId" ng-class="{'is-filled': data.MeansId}">
+							<option value="Driver's License" ng-select>Driver's License</option>
+							<option value="International Passport">International Passport</option>
+							<option value="National Id">National Id</option>
+						</select>
+						<label for="meansId">Means of Id</label>
+					</div>
+
+					<div class="form__item" ng-if="form.accountNumber">
+						<select id="accountNumber" ng-model="form.statement.AccountNumber" ng-class="{'is-filled': form.statement.AccountNumber}">
+							<optgroup style="font-size:12px;">
+								<option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+								</option>
+							</optgroup>
+						</select>
+						<label for="accountNumber">Account To Print</label>
+					</div>
+
+					<div class="form__item" ng-if="form.noOfCopies">
+						<select id="noOfCopies" ng-model="form.statement.NoOfCopies" ng-class="{'is-filled': form.statement.NoOfCopies}">
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+							<option value="4">Four</option>
+							<option value="5">Five</option>
+							<option value="6">Six</option>
+							<option value="7">Seven</option>
+							<option value="8">Eight</option>
+							<option value="9">Nine</option>
+							<option value="10">Ten</option>
+						</select>
+						<label for="noOfCopies">No of Copies</label>
+					</div>
+
+					<div class="form__item" ng-if="form.statementDate">
+						<input type="date" id="startDate" ng-model="form.FromDate" ng-class="{'is-filled': form.FromDate}">
+						<label for="startDate">Start Date</label>
+					</div>
+					<div class="form__item" ng-if="form.statementDate">
+						<input type="date" id="endDate" ng-model="form.ToDate" ng-class="{'is-filled': form.ToDate}">
+						<label for="endDate">End Date</label>
+					</div>
+
+					<div class="form__item" ng-if="form.useToken == 1">
+						<input type="password" id="secretAnswer" ng-model="form.SecretAnswer" autocomplete="off" ng-class="{'is-filled': form.SecretAnswer}">
+						<label for="secretAnswer">Secret Answer</label>
+					</div>
+
+					<div class="form__item" ng-if="form.remarks">
+						<textarea id="remarks" ng-model="data.Remarks" ng-class="{'is-filled': data.Remarks}"></textarea >
+						<label for="remarks">Remarks</label>
+					</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Continue" ng-click="enableAuthorization()">
+					</div>
+
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

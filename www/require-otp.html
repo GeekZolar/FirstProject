@@ -1,0 +1,36 @@
+<ion-view>
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<!-- <button class="navbar__action navbar__action--back-new" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button> -->
+		</div>
+		<div class="navbar__title-new">Registration</div>
+	</div>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section>
+				<div class="heading">
+					<h1></h1>
+					<p class="email">{{message.Message}}</p>
+				</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+						<div class="form__item">
+							<input type="tel" id="otp" autocapitalize="none" autocomplete="off" ng-model="data.Otp" ng-class="{'is-filled':data.Otp}">
+							<label for="otp">OTP</label>
+						</div>
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Validate" ng-click="validateOtp()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view>
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<!-- <button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button> -->
+		</div>
+		<div class="navbar__title-new">Registration Complete</div>
+	</div>
+	<ion-content>
+		<div id="app">
+			<header>
+			</header>
+			<section>
+				<div class="heading">
+					<h1></h1>
+					<h2>Congratulations! <br> Your account is now open!</h2>
+					<p class="email">
+						<span>We will contact you within 24 hours for your login details and account information</span>
+					</p>
+					<p class="number">
+						<span>Your new Account Number is:</span>
+						{{nuban}}
+					</p>
+				</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+					<form action="" class="form form--register" id="register">
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Get Started!" ui-sref="login">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

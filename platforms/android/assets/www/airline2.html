@@ -1,0 +1,56 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Airline Payments</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+
+					<div ng-repeat="x in Forms track by $index">
+													<div ng-if="x.field_type == 2 && x.read_only == 0">
+															<div class="form__item">
+																<input type="text" class="is-filled" id="{{x.field_id}}" name={{x.field_name}} autocomplete="off" maxlength={{x.field_length}} value={{x.actual_value}}>
+																<label for="{{x.field_id}}">{{x.field_caption}}</label>
+															</div>
+                          </div>
+
+													<div ng-if="x.field_type == 3 && x.read_only == 0">
+															<div class="form__item">
+																<input type="text" class="is-filled" id="{{x.field_id}}" name={{x.field_name}} autocomplete="off" maxlength={{x.field_length}} value={{x.actual_value}}>
+																<label for="{{x.field_id}}">{{x.field_date_format|uppercase}}</label>
+															</div>
+                          </div>
+
+													<div ng-if="x.field_type == 1 && x.read_only == 0">
+															<div class="form__item">
+																<select ng-model="optionValue" ng-class="{'is-filled': optionValue}"
+																				 ng-options="option as option.lov_text for option in x.lov_details.lov_detail"
+																				 id="{{x.field_id}}" ng-change="saveOption(optionValue.lov_value,'{{x.field_id}}')">
+																</select>
+																<label for="{{x.field_id}}">{{x.field_caption}}</label>
+															</div>
+													</div>
+											</div>
+
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Submit" ng-click="continue()">
+					</div>
+
+				</form>
+			</div>
+
+		</section>
+	</div>
+</ion-content>
+</ion-view>

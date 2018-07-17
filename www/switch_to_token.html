@@ -1,0 +1,40 @@
+<ion-view ng-init="sendOtp()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Switch To Token</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section>
+					<div class="heading">
+						<h1></h1>
+						<!-- <p class="info">Enter the 6-digit secure code sent to your mobile number registered with the bank.</p> -->
+						<p>You can also generate a secure code via your hardware token or by dialing *150*97#</p>
+					</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+						<form  class="form form--register" id="register">
+							<div class="form__item">
+								<input type="tel" id="otp" maxlength="6" ng-model="switchDev.Otp" autocomplete="off" ng-class="{'is-filled': switchDev.Otp}">
+								<label for="otp">OTP</label>
+							</div>
+							<div class="form__actions">
+								<input type="submit" class="btn btn--primary" value="Continue" ng-click="switchDevice()">
+							</div>
+						</form>
+					</div>
+			</section>
+		 </div>
+	</ion-content>
+</ion-view>
+<!-- <button class=" button-block btn btn--primary no-border" ng-click="switchDevice()">
+		Send
+</button> -->

@@ -1,0 +1,197 @@
+/* All custom css will have the prefix hrot which is an acronymn for HR orange toolbox*/
+
+html,body {
+    font-family: 'Lato', sans-serif !important;
+}
+
+/*.has-header {
+  top:10px!important;
+}*/
+
+.modal {
+  background-color: transparent!important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-positive.navbar.navbar--dark{
+  top: 0px !important;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .has-header.has-loading {
+    top: 0px !important;
+    /*chage to 82 sometimes to fit nicely*/
+}
+.platform-ios.platform-cordova:not(.fullscreen) .bar-positive.navbar {
+    height: 78px !important;
+    /*chage to 82 sometimes to fit nicely*/
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .dashboard.scroll-content.ionic-scroll.overflow-scroll.has-header {
+    top: 50px !important;
+    background-color: #fff!important;
+    /*chage to 82 sometimes to fit nicely*/
+}
+
+div#videoFrame html body{
+  color: #fff!important;
+}
+
+.video-container {
+    margin-top: 60px;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+    -webkit-overflow-scrolling:touch;
+    background-color: #000;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.app_dashboard_header {
+    background-color: #fff !important;
+    color: #ffffff !important;
+    border: 0px !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    z-index: 2 !important;
+    height: 95px;
+}
+
+.bg-gtbank{
+  background-color: #dd4f05!important;
+  color: #fff!important;
+  border-radius: 0!important;
+}
+.bg-white{
+  background-color: #fff!important;
+  color: #dd4f05!important;
+  border: 1px solid #dd4f05;
+  border-radius: 0!important;
+}
+.color-white{
+  color: #fff!important;
+}
+.color-green{
+  color: green !important;
+}
+.color-red{
+  color: red !important;
+}
+.color-six{
+  color:#666!important;
+}
+
+.thumb-small {
+    width: 36px;
+    display: inline-block;
+    text-align: center;
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.m-t-small {
+    margin-top: 10px;
+}
+
+.text-muted {
+    color: #919599;
+}
+
+.text-danger {
+    color: #a94442;
+}
+
+a.text-danger:hover {
+    color: #843534;
+}
+
+.text-danger {
+    color: #ff5f5f;
+}
+
+.mid-page {
+    margin-top: 40% !important;
+}
+
+.no-border-radius {
+    border-radius: 0px !important;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.no-border-top {
+    border-top: 0px !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.font-size12 {
+    font-size: 12px !important;
+}
+
+.font-size14 {
+    font-size: 14px !important;
+}
+
+.knockout-bg {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.gtbank-color {
+    color: #dd4f05 !important;
+}
+
+.color-grey {
+    color: #444;
+}
+
+.color-yellow {
+    color: #D39D09 !important;
+}
+
+.g-box-shadow {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.failure-color {
+  color: : red;
+}
+
+.transparent {
+  background: rgba(0,0,0,0.8);
+}

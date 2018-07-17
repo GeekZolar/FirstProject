@@ -1,0 +1,50 @@
+<ion-view hide-nav-bar="true">
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back-new" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title-new">Setup with GTBank Account</div>
+	</div>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section>
+				<div class="heading">
+					<h2></h2>
+					<h3> </h3>
+				</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+						<div class="form__actions">
+							<div class="form__item">
+								<input type="tel" id="accountNumber" autocapitalize="none" autocomplete="off" ng-model="data.AccountNumber" maxlength="10" ng-class="{'is-filled': data.AccountNumber}">
+								<label for="accountNumber">Account number</label>
+							</div>
+							<div class="form__item">
+								<input type="tel" id="phoneNumber" autocapitalize="none" autocomplete="off" ng-model="data.PhoneNumber" ng-class="{'is-filled': data.PhoneNumber}">
+								<label for="phoneNumber">Phone number</label>
+							</div>
+							<div class="form__item">
+								<input type="tel" id="panLast" autocapitalize="none" autocomplete="off" ng-model="data.Pan" maxlength="4" ng-class="{'is-filled': data.Pan}">
+								<label for="panLast">Card Number (last 4 digits)</label>
+							</div>
+						<!--	<div class="form__item">
+								<input type="email" id="emailAddress" autocapitalize="none" autocomplete="off" ng-model="data.EmailAddress">
+								<label for="emailAddress">Email address</label>
+							</div> -->
+							<div class="form__actions">
+								<input type="submit" class="btn btn--primary" value="Continue" ng-click="linkAccount()">
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

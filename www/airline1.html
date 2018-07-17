@@ -1,0 +1,53 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Airline Payments</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<input type="text" disabled="disabled">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+					<div class="form__item">
+						<select id="recipient" ng-model="form.data.SourceAccount" ng-class="{'is-filled': form.data.SourceAccount}">
+							<optgroup style="font-size:12px;">
+	                <option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+	              </option>
+							</optgroup>
+						</select>
+						<label for="recipient">From account</label>
+					</div>
+					<div class="form__item">
+						<select id="category" ng-model="ben.CustomerId" ng-change="getSubBeneficiary()" ng-class="{'is-filled': ben.CustomerId}">
+							<option value=""></option>
+							<option value="{{x.CUSTOMER_ID}}" ng-repeat="x in Category">{{x.CUSTOMER_SHO_NAME}}
+						 </option>
+						</select>
+						<label for="category">Select a category</label>
+					</div>
+
+					<div class="form__item">
+						<select id="subcategory" ng-model="pro.FormId" ng-change="getFormId()" ng-class="{'is-filled': pro.FormId}">
+							<option value=""></option>
+							<option value="{{s.FORM_ID}}" ng-repeat="s in subCategory">{{s.FORM_DESC}}
+							</option>
+						</select>
+						<label for="subcategory">Product</label>
+					</div
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Continue" ng-click="validate()">
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

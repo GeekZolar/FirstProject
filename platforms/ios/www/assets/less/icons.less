@@ -1,0 +1,52 @@
+// Import icons
+
+@font-face {
+    font-family: 'gtbank-icons';
+    src:    url('../assets/icon/gtbank-icons.eot?31vk2f');
+    src:    url('../assets/icon/gtbank-icons.eot?31vk2f#iefix') format('embedded-opentype'),
+        url('../assets/icon/gtbank-icons.ttf?31vk2f') format('truetype'),
+        url('../assets/icon/gtbank-icons.woff?31vk2f') format('woff'),
+        url('../assets/icon/gtbank-icons.svg?31vk2f#gtbank-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@icon-arrow-select: "\e900";
+@icon-arrow-back: "\e901";
+@icon-icon-hamburger: "\e902";
+@icon-icon-menu: "\e903";
+@icon-icon-close: "\e904";
+@icon-icon-Star: "\e905";
+
+.ico(@name, @color, @size, @pos) {
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	& when (@pos = left) {
+		&::before {
+			.icoFont(@name);
+			color: @color;
+			font-size: @size;
+		}
+    }
+    & when (@pos = right) {
+		&::after {
+			.icoFont(@name);
+			color: @color;
+			font-size: @size;
+		}
+    }
+}
+
+.icoFont(@name) {
+	font-family: 'gtbank-icons' !important;
+	content: @name;
+}
+
+
+

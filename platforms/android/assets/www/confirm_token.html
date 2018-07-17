@@ -1,0 +1,30 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Confirm Token</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section class="start-bottom">
+				<div class="content">
+						<form  class="form form--register" id="register">
+							<div class="form__item">
+								<input type="tel" id="tokenId" ng-model="request.TokenId" autocomplete="off" ng-class="{'is-filled': request.TokenId}">
+								<label for="tokenId">Token Id</label>
+							</div>
+							<div class="form__actions">
+								<input type="submit" class="btn btn--primary" value="Confirm Token" ng-click="confirmToken()">
+							</div>
+						</form>
+					</div>
+			</section>
+		 </div>
+	</ion-content>
+</ion-view>

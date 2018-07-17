@@ -1,0 +1,43 @@
+<ion-view ng-init="initAccountToDelete()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Confirm Delete</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<header>
+			</header>
+			<section class="start-bottom">
+				<div class="content">
+						<form  class="form form--register" id="register">
+							<div class="form__item">
+								<input type="text" id="beneficiaryName" ng-model="data.beneficiaryName" disabled="true" ng-class="{'is-filled': data.beneficiaryName}">
+								<label for="beneficiaryName">Beneficiary Name</label>
+							</div>
+							<div class="form__item">
+								<input type="text" id="accountNumber" ng-model="data.accountNumber" disabled="true" ng-class="{'is-filled': data.accountNumber}">
+								<label for="accountNumber">Account Number</label>
+							</div>
+							<div class="form__item" ng-if="data.useToken == 1">
+								<input type="text" id="secretAnswer" ng-model="data.secretAnswer" autocomplete="off" ng-class="{'is-filled': data.secretAnswer}">
+								<label for="secretAnswer">Secrete Answer</label>
+							</div>
+							<div class="form__item">
+								<input type="password" id="tokenId" ng-model="data.tokenCode" autocomplete="off" ng-class="{'is-filled': data.tokenCode}" maxlength="6" minlength="4">
+								<label for="tokenId" ng-if="data.useToken == 1">Token Code</label>
+								<label for="tokenId" ng-if="data.useToken == 0">Transaction PIN</label>
+							</div>
+							<div class="form__actions">
+								<input type="submit" class="btn btn--primary" value="Confirm Delete" ng-click="confirmDelete()">
+							</div>
+						</form>
+					</div>
+			</section>
+		 </div>
+	</ion-content>
+</ion-view>

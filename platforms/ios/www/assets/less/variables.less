@@ -1,0 +1,43 @@
+// Image directory
+
+@image-path: '../assets/img';
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+@font-main: 'Lato', sans-serif;
+
+@font-main-light: 300;
+@font-main-regular: 400;
+@font-main-bold: 700;
+
+// High Density
+
+@highdensity: 	~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+				~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+				~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+				~"only screen and (min-device-pixel-ratio: 1.5)";
+
+// Clearers
+
+.clear {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	*zoom: 1;
+}
+
+.mp0 {
+	margin: 0;
+	padding: 0;
+}
+.mp(@margin; @padding) {
+    margin: @margin; 
+    padding: @padding;
+}

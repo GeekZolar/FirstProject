@@ -1,0 +1,67 @@
+<ion-view  class="bg_ireport">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">iReport</div>
+	</ion-header-bar>
+	<ion-content class="has_header bg_ireport" ng-init="pastReports()">
+		<div class="bg_ireport_banner-2">
+			<div class="text_ireport_banner-2 pull-left ireport-big-text">Past Reports</div>
+			<div class="bg_ireport_camera_big-3"></div>
+		</div>
+		<div class="card" style="margin: 10px 10px;padding-bottom: 0px;" ng-repeat="report in reports | orderBy:'DateAdded':true  track by $id(report)">
+				<div class="row no-padding" ng-if="report.ResourceTypeId != 3">
+					<div class="col no-padding">
+						<a class="item item-thumbnail-left" ng-click="goToDetails('{{report.ReportId}}')">
+							<img ng-if="report.ResourceTypeId == 2" src="img/r1.png" />
+							<img ng-if="report.ResourceTypeId == 1" src="img/r2.png" />
+							<div class="item-text-wrap color-gtbank" style="margin-top:8px;">
+								{{report.Title}}<br>
+									<!-- <span class="faded_color_report">{{report.Address}}</span><br> -->
+									<span class="faded_color_report">
+										<i class="fa fa-exchange"></i> {{report.TheReportStatus.Name}} &nbsp;&nbsp;&nbsp;
+										<i class="fa fa-commenting-o"></i> {{report.Comments.length - 1}}
+									</span>
+									<span class="color-yellow pull-right smallest-font" style="margin-top:5px;">{{report.DateAdded | date:'MMM d, hh:mma'}}</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row no-padding" ng-if="report.ResourceTypeId == 3">
+					<div class="col no-padding">
+						<a class="item item-text-wrap color-gtbank" ng-click="goToDetails('{{report.ReportId}}')">
+							{{report.Title}}<br>
+								<!-- <span class="faded_color_report">at {{report.Address}}</span><br> -->
+								<!-- <p>{{report.Comments[0].Comments}}</p> -->
+								<span class="faded_color_report">
+									<i class="fa fa-exchange"></i> {{report.TheReportStatus.Name}} &nbsp;&nbsp;&nbsp;
+									<i class="fa fa-commenting-o"></i> {{report.Comments.length - 1}}
+								</span>
+								<span class="color-yellow pull-right smallest-font" style="margin-top:5px;">{{report.DateAdded | date:'MMM d, hh:mma'}}</span>
+						</a>
+					</div>
+				</div>
+		</div>
+	</ion-content>
+	<footer>
+		<div class="tab__nav tab__nav--light">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item">GTBank</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item">Social</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item nav__item--is-active">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

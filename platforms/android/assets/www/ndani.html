@@ -1,0 +1,65 @@
+<ion-view ng-init="loadVideosFromYouTube()">
+	<ion-content class="ndani" scroll="false">
+		<header>
+			<div class="navbar" style="background-image: url('assets/temp/temp_cover.png');">
+				<div class="navbar__actions" style="margin-top:{{topMargin}}">
+					<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+						<span>Back</span>
+					</button>
+					<button class="navbar__action navbar__action--secondary-menu">
+						<span>Back</span>
+					</button>
+				</div>
+				<div class="navbar__title" style="margin-top:{{topMargin}}">Ndani TV</div>
+				<div class="navbar__playback">
+					<h2>The Juice</h2>
+					<p>Season 3 - Official Teaser</p>
+					<ul class="rating">
+						<li class="rating__star rating--selected">
+							<span>One</span>
+						</li>
+						<li class="rating__star rating--selected">
+							<span>Two</span>
+						</li>
+						<li class="rating__star rating--selected">
+							<span>Three</span>
+						</li>
+						<li class="rating__star rating--selected">
+							<span>Four</span>
+						</li>
+						<li class="rating__star">
+							<span>Five</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<ion-scroll style="position:absolute;" direction="y">
+			<br/>
+			<br/>
+			<div style="height:{{pageHeight - 100}}px;">
+				<div id="app">
+					<section>
+							<div class="content">
+								<div class="playlist" >
+									<div ng-if="newVideos" class="playlist__item" ng-repeat="video in newVideos | limitTo:numberOfItemsToDisplay">
+										<div class="playlist__col playlist__col--img" ng-click="playVideo(video)">
+											<img ng-src="{{img[$index]}}" alt="" ng-init="loadImage(video.snippet.thumbnails.medium.url,$index)"/>
+										</div>
+										<div class="playlist__col playlist__col--txt" ng-click="playVideo(video)">
+											<div class="inner">
+												<p class="source">{{video.snippet.channelTitle}}</p>
+												<h3>{{video.snippet.title}}</h3>
+												<p></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					</section>
+				</div>
+				<ion-infinite-scroll on-infinite="addMoreItem()" ng-if="newVideos.length > numberOfItemsToDisplay"></ion-infinite-scroll>
+			</div>
+		</ion-scroll>
+	</ion-content>
+</ion-view>

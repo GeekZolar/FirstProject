@@ -1,0 +1,127 @@
+ <ion-view cache-view="false">
+  <ion-nav-bar class="hrot_dashboard_header nav-title-slide-ios7" style="border:0px!important;">
+  <header>
+      <div class="navbar">
+        <div class="navbar__actions" style="margin-top:30px">
+          <button class="navbar__action navbar__action--menu" >
+            <span>Menu</span>
+          </button>
+          <button class="navbar__action navbar__action--close navbar__action--is-hidden" >
+            <span>Close</span>
+          </button>
+        </div>
+        <div class="navbar__logo" style="margin-top:30px">
+          <span>GTBank</span>
+        </div>
+      </div>
+    </header>
+  </ion-nav-bar>
+	<ion-content class="dashboard" >
+		<div id="app" style="background-color:#ffffff;padding:10px 15px 15px;">
+      <header>
+  			<div class="account__details" style="margin-top:40px">
+  				<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+  					<ion-slide ng-repeat="account in accounts">
+  				<div class="detail detail--overview" style="padding-top: 0px;">
+  					<p>
+  						{{account.AccountType}}
+  						<span style="padding-top: 2px;padding-bottom: 5px;">{{account.Nuban}}</span>
+  					</p>
+  					<p class="balance">
+             <b ng-if="account.Currency == 'NGN'" style="color:#dd4f05;font-weight:300;">&#8358; </b>
+  					 <b ng-if="account.Currency == 'USD'" style="color:#dd4f05;font-weight:300;">$</b>
+  					 <b ng-if="account.Currency == 'GBP'" style="color:#dd4f05;font-weight:300;">£</b>
+  					 <b ng-if="account.Currency == 'EUR'" style="color:#dd4f05;font-weight:300;">€</b>
+  						{{account.AvailableBalance}}
+                          <br/>
+                          <br/>
+  					</p>
+  				</div>
+  				</ion-slide>
+  			</ion-slide-box>
+  				<ul class="slick-dots" style="display: block;" role="tablist">
+  					<li ng-repeat="account in accounts" ng-class="{'slick-active':$index == data.index}" aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation00" id="slick-slide01">
+  						<button type="button" data-role="none" role="button" tabindex="0">{{$index+1}}</button>
+  					</li>
+  				</ul>
+  			</div>
+  		</header>
+			<nav>
+				<div class="nav">
+          <h5 class="align-center gtbank-color">{{data.name}}</h5>
+					<ul class="nav__listGaps">
+            <li>
+							<a ui-sref="history-details" class="accountHistoryGaps">Account History</a>
+						</li>
+						<li>
+							<a ui-sref="transfers" class="transferGaps">Transfers</a>
+						</li>
+						<li>
+							<a ui-sref="airtime-and-payments" class="airtimeGaps">Airtime</a>
+						</li>
+            <li>
+							<a ui-sref="notificationsGaps" class="notificationsGaps">Notifications</a>
+						</li>
+            <li>
+							<a ui-sref="lifestyle" class="lifestyle_iconGaps">Lifestyle</a>
+						</li>
+            <li>
+							<a ui-sref="settings-and-help" class="helpGaps">Help</a>
+						</li>
+            <li>
+              <a ui-sref="change-passwordGapsInapp" class="changepasswordGaps">Change Password</a>
+            </li>
+					</ul>
+          <br>
+          <br>
+          <br>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary" ui-sref="gl-login">Logout</button>
+            </div>
+				</div>
+			</nav>
+			<section>
+				<div class="payment">
+					<input type="text" placeholder="Type Recipient, Beneficiary Name or Account" ng-click="showBeneficiaries()"
+          ng-model="form.Beneficiary" ng-disabled="form.DisableTextBox">
+					<button class="btn btn--primary" ui-sref="transfers">Start Payment</button>
+				</div>
+			</section>
+      <section>
+        <ul class="quicknavGaps">
+          <li>
+            <a ui-sref="history-details" class="quicknav__item quicknav__item--loansGaps">
+              <span>Account History</span>
+            </a>
+          </li>
+        <li>
+          <a ui-sref="transfers" class="quicknav__item quicknav__item--transferGaps">
+            <span>Transfer</span>
+          </a>
+        </li>
+        <li>
+          <a ui-sref="airtime-and-payments" class="quicknav__item quicknav__item--billsGaps">
+            <span>Airtime</span>
+          </a>
+        </li>
+        <li>
+          <a ui-sref="notifications" class="quicknav__item quicknav__item--requestGaps">
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li>
+          <a ui-sref="lifestyle" class="quicknav__item quicknav__item--lifestyleGaps">
+            <span>Lifestyle</span>
+          </a>
+        </li>
+        <li>
+          <a ui-sref="settings-and-help" class="quicknav__item quicknav__item--helpGaps">
+            <span>Help</span>
+          </a>
+        </li>
+        </ul>
+      </section>
+</div>
+	</ion-content>
+  <script src="build/main.js"></script>
+</ion-view>

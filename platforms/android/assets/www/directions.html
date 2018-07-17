@@ -1,0 +1,43 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Directions</div>
+	</ion-header-bar>
+    <ion-content class="has-header">
+			<div class="form__item">
+								<a class="item no-margin no-top-border" style="border-top: 0px;">
+		                <span class="margin10 font-size16" style="color:#7d7d7d;"><b>Origin:</b> {{origin}}</span>
+		            </a>
+		            <a class="mb item no-margin no-top-border no-bottom-border">
+		                <span class="margin10 font-size16" style="color:#7d7d7d;"><b>Destination:</b> {{destination}}</span>
+		            </a>
+		        </div>
+						<div id="directions-panel" class="panel"></div>
+        <br/>
+    </ion-content>
+		<footer>
+			<div class="tab__nav tab__nav--light">
+				<ul>
+					<li>
+						<a ui-sref="dashboard" class="nav__item">GTBank</a>
+					</li>
+					<li>
+						<a ui-sref="socials" class="nav__item">Social</a>
+					</li>
+					<li>
+						<a ui-sref="gtlocate" class="nav__item nav__item--is-active">GTLocate</a>
+					</li>
+					<li>
+						<a ui-sref="reportMenu" class="nav__item">iReport</a>
+					</li>
+					<li>
+						<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+</ion-view>

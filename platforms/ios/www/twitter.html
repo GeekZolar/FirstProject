@@ -1,0 +1,64 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark" style="padding-right: 0px;">
+		<div class="navbar__actions" style="width: 100%;">
+			<div class="navbar__action">
+				<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+					<span>Back</span>
+				</button>
+				<a class="button-clear" ui-sref="interest-settings" style="text-decoration:none;padding:8px;color:#fff;float:right;margin-top:5px;">
+					<i class="fa fa-cog" style="font-size:20px;"></i>
+				</a>
+			</div>
+		</div>
+		<div class="navbar__title">Socials</div>
+	</ion-header-bar>
+	<ion-content class="has-header" scroll="false">
+		<div class="button-bar" >
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="socials">News</a>
+			<a class="button bg-gtbank  font-size12" style="line-height: 52px;z-index: 1;" ui-sref="facebook">Facebook</a>
+			<a class="button bg-white font-size12" style="line-height: 52px;z-index: 1;">Twitter</a>
+			<a class="button bg-gtbank font-size12" style="line-height: 52px;z-index: 1;" ui-sref="instagram">Instagram</a>
+		</div>
+		<ion-scroll direction="y" style="height: 100%;">
+			<div id="app">
+				<header>
+				</header>
+	      <div ng-show="home_timeline.length == 0">Loading tweets...</div>
+
+	      <div ng-repeat="entry in home_timeline" class="list card">
+	        <div class="item item-avatar">
+	          <img ng-src="{{entry.user.profile_image_url}}"/>
+	          <h2>{{entry.user.name}}</h2>
+	          <p>{{correctTimestring(entry.created_at) | date:'medium'}}</p>
+	        </div>
+
+	        <div class="item item-body">
+	          <p ng-bind-html="entry.text"></p>
+	          <img ng-if="entry.extended_entities" ng-src="{{ entry.extended_entities.media[0].media_url }}" style="width: 100%;"/>
+	        </div>
+	      </div>
+		</div>
+		</ion-scroll>
+	</ion-content>
+	<footer>
+		<div class="tab__nav tab__nav--light">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item">Banking</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item nav__item--is-active">Socials</a>
+				</li>
+				<li>
+					<a ui-sref="gtlocate" class="nav__item">GTLocate</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

@@ -1,0 +1,87 @@
+<ion-view>
+<ion-content class="spinlet" scroll="false">
+	<ion-scroll style="position:absolute;" direction="y">
+		<div style="height:{{pageHeight - 100}}px;">
+			<div id="app">
+				<header>
+					<div class="navbar" style="background-image: url('assets/temp/spinlet02.png');z-index: 0;">
+						<div class="navbar__actions" style="margin-top:{{topMargin}}">
+							<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+								<span>Back</span>
+							</button>
+							<button class="navbar__action navbar__action--search">
+								<span>Back</span>
+							</button>
+						</div>
+						<div class="navbar__title" style="margin-top:{{topMargin}}">Spinlet</div>
+					</div>
+				</header>
+				<section>
+					<div class="songs" style="margin-top: 45px;">
+						<ion-scroll direction="x">
+		                <div class="row">
+		                    <div class="col col-50" ng-repeat="data in tunes" style="margin: 0 140px 0px 0px;width: 100%;">
+		                        <div class="list" ng-click="getUrl1(data,$index)">
+		                            <div class="item" style="background-image: url('{{img[$index]}}') !important; background-repeat: no-repeat !important;width:300px; height: 300px; background-size:cover;border:0px;" ng-init="loadImage(data.image_info[0].load_url,$index)">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </ion-scroll>
+					</div>
+					<div class="content" ng-if="tunes" style="margin-top:45px;">
+						<div class="player">
+							<h2>{{selectedTrack.title}}</h2>
+							<p>{{selectedTrack.album_artist_name}} - {{selectedTrack.group_name}}</p>
+							<div class="progress">
+								<input type="range" id="range-val" value="0" min="0" max="338" data-thumbwidth="20" style="background-size: 0% 100%;">
+								<div class="progress__total">3:38</div>
+								<div id="tip" style="left: calc((13.6095% - -7px) - 15px);">00:00</div>
+							</div>
+							<div class="controls">
+								<ul>
+									<li>
+										<a href="#" class="shuffle">
+											<span>Shuffle</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="skip skip--back">
+											<span>Skip back</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="play">
+											<span>Play/Pause</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="skip skip--forward">
+											<span>Skip forward</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="repeat">
+											<span>Repeat</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<br/>
+							<div>
+								<span>This page is still in progress</span>
+							</div>
+							<!-- <div class="volume">
+								<a href="#" class="mute">
+									<span>Mute</span>
+								</a>
+								<input type="range" id="volume" class="volume__level" value="46" min="0" max="100" data-thumbwidth="20" style="background-size: 46% 100%;">
+							</div> -->
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		</ion-scroll>
+</ion-content>
+</ion-view>

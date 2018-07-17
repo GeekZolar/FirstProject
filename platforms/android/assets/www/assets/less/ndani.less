@@ -1,0 +1,106 @@
+// Ndani TV
+
+.ndani {
+	background: #f7f8f8;
+	.content {
+		margin: 150px 0 0;
+		padding: 15px 0 60px 0;
+		float: left;
+	}
+	.playlist {
+		margin: -15px 0 0;
+		&__item {
+			float: left;
+			width: 100%;
+			margin: 15px 0 0 ;
+		}
+		&__col {
+			width: 50%;
+			float: left;
+			&--img {
+				// margin: 0 15px 0 0;
+				background: #cccccc;
+  				box-shadow: 0px 20px 66.5px 3.5px rgba(0, 0, 0, 0.3);
+  				overflow: hidden;
+  				clear: both;
+				img {
+					width: 101%;
+					height: auto;
+					float: left;
+				}
+			}
+			&--txt {		
+				padding: 0 0 0 15px;
+				display: table;
+				height: 100%;
+				.inner {
+					display: table-cell;
+					vertical-align: bottom;
+				}
+				h3 {
+					margin: 0;
+					font-size: 15px;
+					color: #3e4456;
+					font-weight: @font-main-bold;
+				}
+				p {
+					font-size: 10px;
+					margin: 0;
+					&.source {
+						color: #3e4456;
+						font-size: 9px;
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+	.navbar {
+		height: 200px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		.navbar__action {
+			&--back {
+				.ico(@icon-arrow-back, #fff, 17px, left);
+			}
+		}
+		.navbar__title {
+			color: #fff;
+		}
+		.navbar__playback {
+			position: absolute;
+			z-index: 9999;
+			float: left;
+			bottom: 0px;
+			h2 {
+				font-size: 20px;
+				color: #fff;
+				font-weight: @font-main-regular;
+				margin: 0;
+			}
+			p {
+				margin: 2px 0 0 0;
+				font-size: 12px;
+				color: #fff;
+				font-weight: @font-main-regular;
+			}
+		}
+		.rating {
+			margin: 10px 0 0;
+			&__star {
+				float: left;
+				margin: 0 2px 0 0;
+				.ico(@icon-icon-Star, #a0939f, 12px, left);
+				span {
+					display: block;
+					text-indent: -9999px;
+				}
+			}
+			&--selected {
+				&:before {
+					color: #fa5b00;
+				}
+			}
+		}
+	}
+}

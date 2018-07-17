@@ -1,0 +1,57 @@
+// Tabs 
+
+.tab__nav {
+	position: relative;
+	ul {
+		width: 100%;
+		li {
+			float: left;
+			text-align: center;
+			width: 20%;
+			border-left: 1px solid #90949e;
+			&:first-child {
+				border: none;
+			}
+			.nav__item {
+				width: 100%;
+				height: 35px;
+				float: left;
+				background: #3e4456;
+				font-size: 9px;
+				color: #fff;
+				text-decoration: none;
+				padding: 13px 5px;
+				&--is-active {
+					background: #dd4f05;
+				}
+			}
+		}
+	}
+	&--light {
+		ul {
+			width: 100%;
+			li {
+				border: none;
+				&:first-child {
+					border: none;
+				}
+				.nav__item {
+					background: rgba(255,255,255,0.9);
+					color: #000;
+					&--is-active {
+						background: rgba(255,255,255,0.9);
+						color: #dd4f05;
+						&:after {
+							content: "";
+							display: block;
+							width: 40%;
+							height: 1px;
+							background: #dd4f05;
+							margin: 5px auto 0 auto;
+						}
+					}
+				}
+			}
+		}
+	}
+}

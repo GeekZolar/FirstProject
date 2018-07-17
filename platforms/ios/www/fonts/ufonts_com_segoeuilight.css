@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ufonts_com_segoeuilight';
+    src: url('fonts/ufonts_com_segoeuilight.eot');
+    src: url('fonts/ufonts_com_segoeuilight.eot') format('embedded-opentype'),
+         url('fonts/ufonts_com_segoeuilight.woff2') format('woff2'),
+         url('fonts/ufonts_com_segoeuilight.woff') format('woff'),
+         url('fonts/ufonts_com_segoeuilight.ttf') format('truetype'),
+         url('fonts/ufonts_com_segoeuilight.svg#ufonts_com_segoeuilight') format('svg');
+}

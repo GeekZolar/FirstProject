@@ -1,0 +1,50 @@
+</ion-view>
+<ion-header-bar class="bar-positive navbar navbar--dark">
+ <div class="navbar__actions">
+  <button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+   <span>Back</span>
+  </button>
+ </div>
+ <div class="navbar__title">Liquidate GT Target Acount</div>
+</ion-header-bar>
+<ion-content class="has-header">
+    <section class="padding">
+
+        <div class="form__item">
+          <select id="recipient" ng-model="form.data.TargetAccount" ng-class="{'is-filled':form.data.TargetAccount}">
+            <optgroup style="font-size:12px;">
+                <option value="{{x.NUMBER}}" ng-repeat="x in accounts | targetAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+              </option>
+            </optgroup>
+          </select>
+          <label for="recipient">Target Account</label>
+        </div>
+
+        <div class="form__item">
+          <select id="recipient" ng-model="form.data.DestAccount" ng-class="{'is-filled':form.data.DestAccount}">
+            <optgroup style="font-size:12px;">
+                <option value="{{x.NUMBER}}" ng-repeat="x in accounts | nairaAccounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+              </option>
+            </optgroup>
+          </select>
+          <label for="recipient">Destination Account</label>
+        </div>
+
+        <div class="form__item">
+          <select id="recipient" ng-model="form.data.RequestType" ng-class="{'is-filled':form.data.RequestType}" ng-change="autoFillAmount()">
+              <option value="FULL">FULL</option>
+              <option value="PARTIAL">PARTIAL</option>
+          </select>
+          <label for="recipient">Request Type</label>
+        </div>
+
+        <div class="form__item">
+          <input type="tel" id="amount" class="currency no-currency-icon" ng-model="form.data.Amount" autocomplete="off" ng-class="{'is-filled': form.data.Amount}" ng-disabled="form.amountIsFixed"fcsa-number>
+          <label for="amount">Amount<span>TZS</span></label>
+        </div>
+        <div class="form__actions">
+          <input type="submit" class="btn btn--primary" value="Continue" ng-click="Submit()">
+        </div>
+      </section>
+</ion-content>
+</ion-view>

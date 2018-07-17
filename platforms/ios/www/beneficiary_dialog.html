@@ -1,0 +1,83 @@
+<ion-modal-view style="background-color:#fff!important;">
+  <ion-header-bar style="background-image:transparent!important;">
+		<div class="navbar__actions" style="width: 100%;">
+			<button ng-click="cancelBeneficiaryModal()" class="navbar__action navbar__action--close">
+				<span>Close</span>
+			</button>
+		</div>
+    <div class="navbar__title" ng-click="cancelBeneficiaryModal()">Beneficiaries</div>
+  </ion-header-bar>
+    <ion-content ng-switch="(bene | filter: searchInput).length">
+      <div class="padding" ng-if="data.isDashboard">
+				<form  class="form form--register" id="register">
+					<div class="form__item">
+						<select id="transType" ng-model="data.TransType" ng-change="getAKindOfBeneficiary()" ng-class="{'is-filled':data.TransType}">
+							<option value="2" ng-selected="true">To GTBank</option>
+							<option value="3">To Other Bank (Instant)</option>
+							<option value="4">To Other Bank (ACH)</option>
+              <option value="5">Pre-registered</option>
+						</select>
+						<label for="transType">Beneficiary Type</label>
+					</div>
+				</form>
+			</div>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon fa fa-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="searchInput">
+        </label>
+      </div>
+      <div ng-switch-when="0" class="failure-color font-size12 align-center">
+        <li class="fa fa-exclamation"></li>
+        No match found
+      </div>
+      <br>
+      <div style="text-align:center!important;" ng-if="!data.isGetBeneficiaryDone"><ion-spinner icon="spiral"></ion-spinner></div>
+			<div class="padding" ng-repeat="x in beneficiary | filter: searchInput | orderBy:'BENEFICIARYNAME' track by $id(x)" ng-switch-default>
+				<div class="row" ng-if= "!data.isDashboard">
+					<div class="col-90">
+						<label class="item item-radio" style="border:0px;margin:0px;" ng-click="cancelBeneficiaryModal('{{x.BENEFICIARYNAME}}','{{x.BENEFICIARYBANKCODE}}','{{x.BENEFICIARYACCT}}')">
+								<input class="banking-input" type="radio" name="group" value={{x.BENEFICIARYACCT}} ng-model="data.DestAccount"/>
+								<h3 style="text-overflow:ellipsis;overflow:hidden;color:#000;margin:0px;font-weight:600; font-size:16px;" >
+									{{x.BENEFICIARYNAME | uppercase}}<br>
+                  <span style="font-weight:400;font-size:12px;color:#000;" ng-if="request.TransType == 2">GT Bank - {{x.BENEFICIARYACCT}}</span>
+                  <span style="font-weight:400;font-size:12px;color:#000;" ng-if="request.TransType == 3 || request.TransType == 4">{{x.BENEBANK}} - {{x.BENEFICIARYACCT}}</span>
+
+									<span style="font-weight:400;font-size:12px;color:#000;" ng-if="request.TransType == 5">GT Bank - {{x.BENEFICIARYACCT}}</span>
+								</h3>
+						</label>
+					</div>
+					<div class="col-10">
+						<buttonng-if="data.TransType != 5" class="button-clear" style="color:red; float:right;"
+										ng-click="deleteBeneficiary({{x}})">
+										<i class="fa fa-trash"></i>
+						</button>
+					</div>
+				</div>
+
+        <div class="row" ng-if= "data.isDashboard">
+          <div class="col-90">
+            <label class="item item-radio" style="border:0px;margin:0px;" ng-click="cancelBeneficiaryModal('{{x.BENEFICIARYNAME}}','{{x.BENEFICIARYBANKCODE}}','{{x.BENEFICIARYACCT}}')">
+                <input class="banking-input" type="radio" name="group" value={{x.BENEFICIARYACCT}} ng-model="data.DestAccount"/>
+                <h3 style="text-overflow:ellipsis;overflow:hidden;color:#000;margin:0px;font-weight:600; font-size:16px;" >
+                  {{x.BENEFICIARYNAME | uppercase}}<br>
+                  <span style="font-weight:400;font-size:12px;color:#000;" ng-if="data.TransType == 2">GT Bank - {{x.BENEFICIARYACCT}}</span>
+                  <span style="font-weight:400;font-size:12px;color:#000;" ng-if="data.TransType == 3 || data.TransType == 4">{{x.BENEBANK}} - {{x.BENEFICIARYACCT}}</span>
+
+                  <span style="font-weight:400;font-size:12px;color:#000;" ng-if="data.TransType == 5">GT Bank - {{x.BENEFICIARYACCT}}</span>
+                </h3>
+            </label>
+          </div>
+					<div class="col-10">
+						<buttonng-if="data.TransType != 5" class="button-clear" style="color:red; float:right;"
+										ng-click="deleteBeneficiary({{x}})">
+										<i class="fa fa-trash"></i>
+						</button>
+					</div>
+				</div>
+
+
+
+			</div>
+    </ion-content>
+  </ion-modal-view>

@@ -1,0 +1,42 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Statement Request</div>
+	</ion-header-bar>
+	<ion-content>
+	<div id="app" style="padding: 0px 15px 15px;">
+		<header>
+		</header>
+		<section>
+			<div><br>
+				<form>
+					<div class="form__item">
+						<select id="recipient" ng-model="data.SourceAccount" ng-class="{'is-filled':data.SourceAccount}">
+							<optgroup style="font-size:12px;">
+									<option value="{{x.NUMBER}}" ng-repeat="x in accounts">{{x.NUMBER}} - {{utilityService.getFirstThreeCharacters(x.ACCOUNTTYPE)}} &nbsp;&nbsp;&nbsp;&nbsp;({{x.CURRENCY}} {{x.AVAILABLEBALANCE | number:2}})
+									</option>
+							</optgroup>
+						</select>
+						<label for="recipient">Account</label>
+					</div>
+					<div class="form__item">
+						<input type="date" id="from" ng-model="req.FromDate" ng-class="{'is-filled':req.FromDate}">
+						<label for="Start Date"> Start Date</label>
+					</div>
+					<div class="form__item">
+						<input type="date" id="to" ng-model="req.ToDate" ng-class="{'is-filled':req.ToDate}">
+						<label for="End Date">End Date</label>
+					</div>
+					<div class="payment">
+						<button class="btn btn--primary" ng-click="sendStatement()">Send Statement</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view ng-init="sendOtp()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Switch To {{title}}</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<!-- <header>
+			</header> -->
+			<section>
+				<div class="heading">
+					<!-- <p class="info">Enter the 6-digit secure code sent to your mobile number registered with the bank.</p> -->
+					<p>Enter a 4 digit pin that will be used for transactions and the one time password (OTP) sent to your registered Mobile number.</p>
+				</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+					<!-- <div class=""> -->
+						<!-- <p class="">Enter the 6-digit secure code sent to your mobile number registered with the bank.</p> -->
+						<!-- <p>You can also generate a secure code via your hardware token or by dialing *737*7#</p> -->
+					<!-- </div> -->
+						<form  class="form form--register" id="register">
+							<div class="form__item" ng-if="paramUseTokenValue == 0">
+								<input type="tel" id="transactionPin" maxlength="4" ng-model="switchDev.TransactionPin" autocomplete="off" ng-class="{'is-filled': switchDev.TransactionPin}" style="-webkit-text-security: disc!important;">
+								<label for="transactionPin">Transaction PIN</label>
+							</div>
+							<div class="form__item" ng-if="paramUseTokenValue == 0">
+								<input type="tel" id="confirmTransactionPin" maxlength="4" ng-model="switchDev.ConfirmTransactionPin" autocomplete="off" ng-class="{'is-filled': switchDev.ConfirmTransactionPin}" style="-webkit-text-security: disc!important;">
+								<label for="confirmTransactionPin">Confirm Transaction PIN</label>
+							</div>
+							<div class="form__item">
+								<input type="tel" id="otp" maxlength="6" ng-model="switchDev.Otp" autocomplete="off" ng-class="{'is-filled': switchDev.Otp}">
+								<label for="otp">OTP</label>
+							</div>
+							<div class="form__actions">
+								<input type="submit" class="btn btn--primary" value="Continue" ng-click="switchDevice()">
+							</div>
+						</form>
+					</div>
+			</section>
+		 </div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Customer Service</div>
+	</ion-header-bar>
+
+    <ion-content scroll="false" class="has-header">
+        <div class="form__item" style="margin: 0;">
+            <div class="mb item mb-item-divider font-size16">
+                CLICK BELOW TO CONTACT GTBANK
+            </div>
+            <a href="tel:+2348039003900" class="mb item font-size16 ">
+                <i class="fa fa-mobile font-size15 color-grey"style="padding-right: 10px;"></i>
+                <span class="font-size16 margin10 color-grey"> +234 803 900 3900</span>
+            </a>
+            <a href="tel:+2348029002900" class="mb item font-size16 ">
+                <i class="fa fa-mobile font-size15 color-grey"style="padding-right: 10px;"></i>
+                <span class="font-size16 margin10 color-grey"> +234 802 900 2900</span>
+            </a>
+            <a href="mailto:GTConnect@gtbank.com" class="mb item font-size16 ">
+                <i class=" fa fa-comment-o font-size15 color-grey"style="padding-right: 10px;"></i>
+                <span class="font-size16 margin10 color-grey"> GTConnect@gtbank.com</span>
+            </a>
+        </div>
+        <div class="mb item font-size16 no-border no-top-padding color-grey">
+            APPLICATION VERSION {{AppVersion}}
+        </div>
+    </ion-content>
+</ion-view>

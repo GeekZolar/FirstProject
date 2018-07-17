@@ -1,0 +1,61 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.dawsonloudon.videoplayer": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "com.dbaq.cordova.contactsPhoneNumbers": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "com.synconset.imagepicker": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-camera": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-contacts": {
+      "CONTACTS_USAGE_DESCRIPTION": "To allow you send airtime directly to a phone cantact",
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-crosswalk-webview": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-email-composer": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.gtbank.gtworldtanzania"
+    }
+  }
+}

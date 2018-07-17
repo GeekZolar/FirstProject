@@ -1,0 +1,53 @@
+<ion-view>
+	<ion-content class="home">
+		<input type="text" disabled="disabled">
+		<ion-scroll style="position: absolute;"direction="y">
+			<div style="height:{{pageHeight}}px;">
+				<div id="app">
+					<header>
+						<!-- <div class="slogan">
+						<span class="logo">GTBank</span>
+						</div> -->
+						<div class="logo">
+							<!-- <img src="img/gtworld_logo_white.png" class="medium"> -->
+						</div>
+						<div class="subFlag">
+                <span class="country"><img src="img/flags/TN@2x.png" class="flag"> <p>tz</p></span>
+            </div>
+
+					</header>
+					<section>
+						<div class="content">
+							<form  class="form form--login" id="login">
+								<div class="test">
+									<!-- <div id="bg">
+									<img src="assets/img/background_blur.png" alt="" id="">
+								</div> -->
+								<div class="form__item">
+									<input type="text" name="input1" id="userLogin" autocapitalize="none" autocomplete="off" ng-model="form.Others.UserId" ng-class="{'is-filled': form.Others.UserId}">
+									<label for="userLogin">Email or Internet Banking ID</label>
+								</div>
+								<div class="form__item">
+									<input type="tel" style="-webkit-text-security: disc!important;" autocomplete="off" ng-model="form.Others.Password" ng-class="{'is-filled': form.Others.Password}">
+									<label for="password">Password</label>
+								</div>
+							</div>
+							<div class="form__actions">
+								<input type="submit" class="btn btn--primary" value="Continue" ng-click="login()">
+							</div>
+							<div class="form__actions">
+								<!-- <a ui-sref="register-options" class="btn btn--link">Sign Up</a> -->
+								<a ui-sref="forgot-password"  class="btn btn--link">Forgot Password?</a>
+							</div>
+							<!-- <div class="form__actions">
+							<a ui-sref="gl-login" style="color:#FFF" class="btn btn--link" ><b>Switch to GAPSLite</b></a>
+						</div> -->
+
+					</form>
+				</div>
+			</section>
+		</div>
+	</div>
+</ion-scroll>
+</ion-content>
+</ion-view>

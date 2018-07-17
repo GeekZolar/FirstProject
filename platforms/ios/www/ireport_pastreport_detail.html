@@ -1,0 +1,86 @@
+<ion-view  class="bg_ireport">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">iReport</div>
+	</ion-header-bar>
+	<ion-content class="has_header bg_ireport" ng-init="pastReportsDetail()">
+    <div class="app">
+			<header>
+				<div class=" bg_ireport_banner-2">
+		              <div class="text_ireport_banner-2 pull-left ireport-big-text">
+		                <div ng-if="report.ResourceTypeId == 1">Video Report</div>
+		                <div ng-if="report.ResourceTypeId == 2">Image Report</div>
+		                <div ng-if="report.ResourceTypeId == 3">Report Detail</div>
+		              </div>
+		              <div class="bg_ireport_camera_big-3"></div>
+		            </div>
+			</header>
+			<section class="content" style="margin-top:50px;">
+		                <div class="card">
+		                  <div class="item item-avatar">
+		                    <img ng-if="report.ResourceTypeId == 2" src="img/picture-icon.png" />
+		                    <img ng-if="report.ResourceTypeId == 1" src="img/video-icon.png" />
+		                      <img ng-if="report.ResourceTypeId == 3" src="img/word.png" />
+		                    <h2>{{report.Title}}</h2>
+												<p class="subdued faded_color_report smallest-font">{{report.DateAdded | date:'MMM d, hh:mma'}}</p>
+		                  </div>
+		                  <div class="item item-body" style="padding-bottom: 0px;">
+		                    <img ng-if="report.ResourceTypeId == 2" class="full-image" ng-src="http://gtmobile.gtbank.com/report/{{report.Resourcepath}}">
+		                    <div ng-if="report.ResourceTypeId == 1" class="video-container">
+		                        <iframe ng-src="{{videoUrl}}" type="{{mimeType}}" frameborder="0" width="560" height="315" autoplay="false" autoclass="no-top-margin" allowfullscreen></iframe>
+		                        <!-- <video ng-src="{{videoUrl}}" width="560" height="315" controls></video> -->
+		                    </div>
+		                    <p style="font-size:15px;">
+		                      {{report.Comments[0].Comments}}
+		                    </p>
+		                    <p class="smallest-font color-yellow">
+													<i class="fa fa-exchange"></i> {{report.TheReportStatus.Name}} &nbsp;&nbsp;&nbsp;
+													<i class="fa fa-commenting-o"></i> {{report.Comments.length - 1}}
+		                    </p>
+		                  </div>
+		                    <div ng-if="report.OtherComments.length > 0">
+		                    <!--<p class="padding-left faded_color_report-2">Report Timeline</p>-->
+		                    <div class="item item-body">
+													<hr>
+		                        <p style="font-size:12px;" ng-repeat="reps in report.OtherComments | orderBy: 'DateCommented':true">
+		                            {{reps.Comments}}<br>
+		                        <span class="subdued faded_color_report smallest-font">{{reps.DateCommented | date:'MMM d, hh:mma'}}</span>
+		                        </p>
+		                    </div>
+		                    </div>
+		                    <div>
+		                        <div class="item item-input padding" >
+		                            <textarea rows="3" style="background-color:#fff border: 1px solid #cccccc;border-radius: 5px;padding-left:5px;" maxlength="200" ng-model="addComment.comment" placeholder="Write a comment..."></textarea>
+		                        </div>
+
+		                        <div class="padding">
+															<button class="btn btn--primary" ng-click="btnAddComment({{report.ReportId}})">Post</button>
+		                        </div>
+		                    </div>
+		                </div>
+			</section>
+		</div>
+	</ion-content>
+	<footer>
+		<div class="tab__nav tab__nav--light">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item">GTBank</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item">Social</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item nav__item--is-active">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

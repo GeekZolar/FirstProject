@@ -1,0 +1,62 @@
+<ion-view>
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back-new" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title-new">Mobile Banking Registration</div>
+	</div>
+	<ion-content>
+		<div id="app">
+			<section>
+				<div class="heading">
+				<!-- <h2>Setup Mobile Banking</h2> -->
+				<br/>
+				<h3>For Existing GTBank Customer</h3>
+				<p>
+					<div class="content" style="padding-top: 10px;">
+						<form action="" class="form form--register" id="register">
+							<div class="form__actions">
+								<input type="submit" class="btn btn--secondary" value="Setup with Account" ui-sref="link-account">
+								<input type="submit" class="btn btn--secondary" value="Setup with Card" ui-sref="link-gtbank-card">
+							</div>
+						</form>
+					</div>
+				</p>
+				<h3>For Non GTBank Customer</h3>
+				<p>
+					<div class="content" style="padding-top: 10px;">
+						<form action="" class="form form--register" id="register">
+							<div class="form__actions">
+								<input type="submit" class="btn btn--secondary" value="Setup with Card" disabled="disabled">
+							</div>
+						</form>
+					</div>
+				</p>
+				<h3>To Open New Account</h3>
+				<p>
+					<div class="content" style="padding-top: 10px;">
+						<form action="" class="form form--register" id="register">
+							<div class="form__actions">
+								<input type="submit" class="btn btn--secondary" value="Open Instant account" ui-sref="register-instant">
+							</div>
+						</form>
+					</div>
+				</p>
+			</div>
+			</section>
+			<!-- <section class="start-bottom">
+				<div class="content" style="padding-top: 400px;">
+					<form action="" class="form form--register" id="register">
+						<div class="form__actions">
+							<input type="submit" class="btn btn--secondary" value="Setup with GTBank Account" ui-sref="link-account">
+							<input type="submit" class="btn btn--secondary" value="Setup with Card" ui-sref="register-bio">
+							<input type="submit" class="btn btn--secondary" value="Open an Instant account" ui-sref="register-instant">
+						</div>
+					</form>
+				</div>
+			</section> -->
+		</div>
+	</ion-content>
+</ion-view>

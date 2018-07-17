@@ -1,0 +1,61 @@
+<ion-view  class="bg_ireport">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">iReport</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+    <div class="bg_ireport_banner-2">
+          <div class="text_ireport_banner-2 pull-left ireport-big-text">New Report </div>
+          <div class="bg_ireport_camera_big-3"></div>
+        </div>
+    <div class="row">
+			<div class="col">
+					<form>
+							<div class="list align-center">
+									<p>&nbsp;</p>
+									<p>&nbsp;</p>
+									<div class="item item-input padding">
+											<input type="text" placeholder="Title" ng-model="report.Title" maxlength="50" style="background-color:#fff; height:47px; border-radius: 5px;" class="gtw_yxt"/>
+									</div>
+									<div class="item item-input padding" >
+											<textarea rows="7" style="background-color:#fff;padding: 5px;" maxlength="200" ng-model="report.Description" placeholder="Your notes"></textarea>
+									</div>
+									<div class="item padding no-border" style="margin-top:10px;">
+											<span class="card_ireport_color-1" ng-if="!mediaAdded" ng-click="showMediaOption()"><i class="fa fa-plus-circle"></i> &nbsp; ADD MEDIA</span>
+											<span class="card_ireport_color-1" ng-if="mediaAdded"><i class="ion-checkmark-circled font-size18 color-green"></i> &nbsp; Media added.</span>
+											<span class="pull-right" ng-if="mediaAdded" ng-click="cancelMedia()"><i class="ion-minus-circled font-size18 color-red"></i></span>
+									</div>
+
+									<div class="padding">
+											<button class="button button-block button-positive bg-gtbank no-border" ng-click="upload()">
+													Submit
+											</button>
+									</div>
+							</div>
+					</form>
+			</div>
+    </div>
+	</ion-content>
+	<footer>
+		<div class="tab__nav tab__nav--light">
+			<ul>
+				<li>
+					<a ui-sref="dashboard" class="nav__item">Banking</a>
+				</li>
+				<li>
+					<a ui-sref="socials" class="nav__item">Social</a>
+				</li>
+				<li>
+					<a ui-sref="reportMenu" class="nav__item nav__item--is-active">iReport</a>
+				</li>
+				<li>
+					<a ui-sref="gttraffic" class="nav__item">GTTraffic</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</ion-view>

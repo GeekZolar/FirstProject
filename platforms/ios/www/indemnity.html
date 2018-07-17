@@ -1,0 +1,44 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">PIN Indemnity</div>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<div class="padding" style="margin-top:50px;">
+			<div style="font-size:14px;line-height:20px;">	IN CONSIDERATION of GUARANTY TRUST BANK (TANZANIA) LIMITED (hereinafter called “the Bank”) agreeing to process transactions initiated by me via the Bank’s Mobile Banking Platform with the sole use of my Personal Identification Number (“PIN”) (hereinafter called “Transactions”) I hereby fully indemnify the Bank, its Directors, agents, privies, assigns, successors, employees, or any other person whomsoever acting under the Bank’s authority or control against any costs, losses, damages, litigation, action, proceeding, expenses (including Attorney’s fees), judicial awards of any kind, or any payments of whatsoever nature made or any cost however incurred, whether directly or indirectly, remotely or otherwise, resulting from the Bank processing such Transactions.
+				<br/>
+				<br/>
+				 I acknowledge and recognize that my PIN is a last resort security check for effecting my Transactions on the Bank’s Mobile Banking Platform.
+
+				 I undertake to be fully and solely responsible for all risks that may arise from the Transactions as well or together with all losses which may be suffered by me as a result of any unauthorized transfer of monies or other Transactions in my account as a result of the use of my PIN on the Bank’s Mobile Banking Platform.
+				 <br/>
+				 <br/>
+				Furthermore, I hereby acknowledge and consent that the Bank would not be liable for any loss, fraudulent or unauthorized access or transfer of monies, that may occur on my account as a result of the Bank processing Transactions consummated on my account through the Bank’s Mobile Banking Platform.
+				<br/>
+				<br/>
+				I hereby irrevocably and unconditionally agree that in addition to any general lien or similar right to which the Bank may be entitled by law, the Bank may at any time and without notice to me combine or consolidate all or any of my other deposits and accounts with and liabilities to the Bank in any currency that may at any time be in possession of the Bank and set off or transfer any sum or sums standing to the credit of any one or more of such accounts or deposits in or towards satisfaction of any claim made against the Bank or loss suffered by the Bank as a result of or pursuant to the Bank processing such Transactions.
+				<br/>
+				<br/>
+				My obligation herein shall not be reduced by any claim by me against the Bank, its Directors, agents, privies, assigns, successors, employees, or any other person whomsoever acting under the Bank’s authority.
+				<br/>
+				<br/>
+				This Indemnity shall be a continuing obligation in respect of any and all matters connected to or arising from the Bank processing such Transactions.
+				<br/>
+				<br/>
+				This Indemnity shall be construed in accordance with the laws of Tanzania.
+			</div>
+			<form class="form form--register" id="register">
+				<div class="form__actions">
+					<input type="submit" class="btn btn--primary" value="Yes, I agree" ng-click="setUseToken(1)" ui-sref="switch-device({useToken:0})">
+					<input type="submit" class="btn btn--secondary" value="No, I disagree" ng-if="!fromDashboard" ng-click="setUseToken(0)" ui-sref="terms-declined">
+					<input type="submit" class="btn btn--secondary" value="No, I disagree" ng-if="fromDashboard"  ui-sref="dashboard">
+
+				</div>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

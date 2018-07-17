@@ -1,0 +1,48 @@
+
+<ion-modal-view on-swipe-down="cancelAuthorization()">
+    <ion-content>
+			<div class="dialog">
+				<div class="dialog__box">
+					<div class="dialog__content" ng-if="form.useToken == 0">
+						<form>
+              <h2 ng-hide="form.otherAuth"><strong>Review Payment</strong></h2>
+              <h3 ng-hide="form.otherAuth"><strong>Confirm <span class="gtbank-color">&#8358; {{form.reviewAmount|number:2}}</span> payment to <span class="gtbank-color">{{form.reviewName}}</span></strong></h3>
+              <p><strong><center>Enter Transaction Pin</center></strong></p>
+              <div>
+									<!-- <input type="tel" style="-webkit-text-security: disc!important;" ng-model="form.Token.Token1" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;" ng-model="form.Token.Token2" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;" ng-model="form.Token.Token3" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;" ng-model="form.Token.Token4" maxlength="1" ng-keyup="nextJump()"> -->
+                  <input type="tel" style="-webkit-text-security: disc!important; text-align: center;!important;" ng-model="form.Token" maxlength="4">
+								</div>
+							<div class="form__actions form__actions--right">
+								<input type="submit" class="btn btn--inline btn--cancel" value="Cancel" ng-click="cancelAuthorization()">
+								<input type="submit" class="btn btn--inline btn--confirm" value="Done" ng-click="confirmTransfer()">
+							</div>
+						</form>
+					</div>
+					<div class="dialog__content" ng-if="form.useToken == 1">
+						<form>
+              <h2 ng-hide="form.otherAuth"><strong>Review Payment</strong></h2>
+              <h3 ng-hide="form.otherAuth"><strong>Confirm <span class="gtbank-color">&#8358; {{form.reviewAmount|number:2}}</span> payment to <span class="gtbank-color">{{form.reviewName}}</span></strong></h3>
+              <p><strong>Enter Token Code</strong></p>
+							<div class="pin">
+								<div class="pin__input" >
+									<input type="tel" style="-webkit-text-security: disc!important;width: 25px;" ng-model="form.Token.Token1" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;width: 25px;" ng-model="form.Token.Token2" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;width: 25px;" ng-model="form.Token.Token3" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;width: 25px;" ng-model="form.Token.Token4" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;width: 25px;" ng-model="form.Token.Token5" maxlength="1" ng-keyup="nextJump()" move-next-on-maxlength>
+									<input type="tel" style="-webkit-text-security: disc!important;width: 25px;" ng-model="form.Token.Token6" maxlength="1" ng-keyup="nextJump()">
+								</div>
+							</div>
+							<div class="form__actions form__actions--right">
+								<input type="submit" class="btn btn--inline btn--cancel" value="Cancel" ng-click="cancelAuthorization()">
+								<input type="submit" class="btn btn--inline btn--confirm" value="Done" ng-click="confirmTransfer()">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+    </ion-content>
+  </ion-modal-view>

@@ -1,0 +1,50 @@
+<ion-view >
+	<ion-content class="home">
+		<ion-scroll style="position: absolute;" direction="y">
+			<div style="height:{{pageHeight}}px;">
+				<div id="app">
+					<header>
+						<div class="slogan">
+						<span class="logo">GTBank</span>
+						</div>
+					</header>
+					<section>
+						<div class="content">
+							<form  class="form form--login" id="login">
+								<div class="test">
+									<!-- <div id="bg">
+										<img src="assets/img/background_blur.png" alt="" id="">
+									</div> -->
+
+									<div class="form__item">
+										<input type="text" name="accessCode" id="userLogin" autocapitalize="none" autocomplete="off" ng-model="data.AccessCode" ng-class="{'is-filled': data.AccessCode}">
+										<label for="userLogin">Access Code</label>
+									</div>
+									<div class="form__item">
+										<input type="text" name="userName" id="userLogin" autocapitalize="none" autocomplete="off" ng-model="data.Username" ng-class="{'is-filled': data.Username}">
+										<label for="userLogin">User Name</label>
+									</div>
+									<div class="form__item">
+										<input type="text" style="-webkit-text-security: disc!important;" autocomplete="off" ng-model="data.Password" ng-class="{'is-filled': data.Password}">
+										<label for="password">Password</label>
+									</div>
+								</div>
+
+								<div class="form__actions">
+									<input type="submit" class="btn btn--primary" value="Continue" ng-click="glUserLogin()">
+								</div>
+
+								<div class="form__actions">
+					       <a  class="btn btn--link" ui-sref="forgot-passwordGaps">Forgot Password</a>
+							 </div>
+							</form>
+							<div style="text-align: center; margin-top: 15px!important;">
+								<a ui-sref="login" style="color:#FFF" class="btn btn--link" ><b>Switch to MobileBanking</b></a>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			</ion-scroll>
+	</ion-content>
+</ion-view>

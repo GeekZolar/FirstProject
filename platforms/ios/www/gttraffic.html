@@ -1,0 +1,46 @@
+<ion-view ng-init="getTrafficMap()">
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ui-sref="dashboard">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">GTTraffic</div>
+	</ion-header-bar>
+	<ion-content>
+		<div id="map" data-tap-disabled="true"></div>
+	<div id="app">
+		<header>
+			<div class="search">
+				<input id = "start-input" type="text" placeholder="From" ng-model="data.start" ng-focus="initAutocomplete('start-input')">
+				<input id = "end-input" type="text" placeholder="To" ng-model="data.end" ng-focus="initAutocomplete('end-input')">
+				<a class="search__trigger" ng-click="search()">
+					<span>Search</span>
+				</a>
+			</div>
+		</header>
+		<section>
+			<div class="content">
+			</div>
+		</section>
+	</div>
+</ion-content>
+<footer>
+	<div class="tab__nav tab__nav--light">
+		<ul>
+			<li>
+				<a ui-sref="dashboard" class="nav__item">Banking</a>
+			</li>
+			<li>
+				<a ui-sref="socials" class="nav__item">Social</a>
+			</li>
+			<li>
+				<a ui-sref="reportMenu" class="nav__item">iReport</a>
+			</li>
+			<li>
+				<a ui-sref="gttraffic" class="nav__item nav__item--is-active">GTTraffic</a>
+			</li>
+		</ul>
+	</div>
+</footer>
+</ion-view>

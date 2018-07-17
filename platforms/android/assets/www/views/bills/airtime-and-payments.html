@@ -1,0 +1,65 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">Airtime</div>
+	</ion-header-bar>
+<ion-content class="has-header">
+	<div id="app">
+		<header>
+		</header>
+		<section class="start-bottom">
+			<div class="content">
+				<form class="form form--bills" id="bills">
+					<div class="form__item">
+						<select id="airtime" ng-model="form.data.AccountToDebit"
+						ng-init="loadAccountToDebit()" ng-class="{'is-filled': form.data.AccountToDebit}" ng-change="loadAvailableNetwork(1)">
+							<option value="{{x.Nuban}}" ng-repeat="x in accountsToDebit">{{x.Nuban}}( {{x.Currency}} {{x.AvailableBalance}} )
+							</option>
+						</select>
+						<label for="airtime">From account</label>
+					</div>
+
+					<div class="form__item">
+						<select id="utilityName" ng-model="form.data.NetworkCode"
+						 ng-class="{'is-filled': form.data.NetworkCode}">
+							<option value="{{x.NetworkCode}}" ng-repeat="x in categories">{{x.NetworkName}}</option>
+						</select>
+						<label for="utilityName">Select a network</label>
+					</div>
+					<div class="form__item" ng-if="form.BeneName !=undefined && form.data.MobileNumber">
+						<input type="text" id="displayName" ng-model="form.BeneName" autocomplete="off" ng-class="{'is-filled': form.BeneName}">
+						<label for="displayName">Beneficiary Name</label>
+					</div>
+					<div class="form__item" style="margin: 15px 0 0;">
+						<div class="row">
+							<div class="col-90">
+								<input type="tel" id="mobileNr" ng-model="form.data.MobileNumber" autocomplete="off" ng-class="{'is-filled': form.data.MobileNumber}">
+								<label for="mobileNr">Mobile number</label>
+							</div>
+							<div class="col" ng-click="loadContacts()">
+								<i class="fa fa-phone-square fa-2x" style="color:#dd4f05;"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="form__item">
+						<input type="tel" id="amount" ng-model="form.data.TransactionAmount"
+						 ng-class="{'is-filled': form.data.TransactionAmount}">
+						<label for="amount">Amount</label>
+					</div>
+
+					<div class="form__actions">
+						<input type="submit" class="btn btn--primary" value="Continue" ng-click="continue()">
+					</div>
+				</form>
+			</div>
+		</section>
+		<section >
+		</section>
+	</div>
+</ion-content>
+</ion-view>

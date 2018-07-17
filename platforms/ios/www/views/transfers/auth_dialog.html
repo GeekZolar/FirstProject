@@ -1,0 +1,24 @@
+	<ion-modal-view style="background-color:transparent!important;">
+	    <ion-content style="background:transparent;">
+				<div class="dialog">
+					<div class="dialog__box">
+						<div class="dialog__content" >
+							<form>
+								<h2><strong>Review Transaction</strong></h2>
+								<h3><strong>Confirm  <span class="gtbank-color">&#8358; {{form.reviewAmount|number:2}}</span> </strong><strong> transaction to <span class="gtbank-color">{{form.reviewName}}</span></strong></h3>
+								<p><strong><center>Enter Token Code</center></strong></p>
+								<div style="margin-left: 60px;!important;">
+								<div class="pin__inputTest">
+									<input type="tel" style="-webkit-text-security: disc!important; font-size: 23px!important;" ng-model="form.Token" maxlength="6">
+								</div>
+								</div>
+								<div class="form__actions form__actions--right">
+									<input type="submit" class="btn btn--inline btn--cancel" value="Cancel" ng-click="cancelAuthorization()">
+									<input type="submit" class="btn btn--inline btn--confirm" value="Done" ng-click="confirmTransfer()">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+	    </ion-content>
+	  </ion-modal-view>

@@ -1,0 +1,24 @@
+<ion-view>
+	<ion-header-bar class="bar-positive navbar navbar--dark">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title">FAQ</div>
+	</ion-header-bar>
+	<ion-content class="has-header"><br>
+		<div ng-repeat="qa in MbQuestionsAndAnswer">
+			<label class="item item-text-wrap" style="font-weight:500" id={{qa.id}} ng-click="showAnswer($index)">
+	        {{qa.q}}
+	    </label>
+
+			<div class="item item-text-wrap" ng-if="qa.id == currentIndex" style="color:#dd4f05;line-height:25px;">
+	        <span ng-repeat="a in qa.a" class="font-size14">
+	                {{a}}
+									<br/>
+	        </span>
+	    </div>
+	    </div>
+	</ion-content>
+</ion-view>

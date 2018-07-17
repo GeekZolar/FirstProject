@@ -1,0 +1,33 @@
+<ion-view>
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<!-- <button class="navbar__action navbar__action--back" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button> -->
+		</div>
+		<div class="navbar__title-new">Registration Complete</div>
+	</div>
+	<ion-content scroll="false">
+		<div id="app">
+			<header>
+			</header>
+			<section>
+				<div class="heading">
+					<h1></h1>
+					<p>A message has been sent to:</p>
+					<p class="email">{{message}}</p>
+					<p>Kindly login with the credentials provided. Please remember to change password after login.</p>
+				</div>
+			</section>
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Get Started!" ui-sref="login">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

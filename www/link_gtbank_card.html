@@ -1,0 +1,32 @@
+<ion-view>
+	<div class="bar bar-header knockout-bg">
+		<div class="navbar__actions">
+			<button class="navbar__action navbar__action--back-new" ng-click="$ionicGoBack()">
+				<span>Back</span>
+			</button>
+		</div>
+		<div class="navbar__title-new">Setup with Card</div>
+	</div>
+	<ion-content class="has-header">
+		<input type="text" disabled="disabled">
+		<div id="app">
+			<section class="start-bottom">
+				<div class="content">
+					<form class="form form--register" id="register">
+						<div class="form__item">
+							<input type="text" id="cardpan" autocomplete="off" maxlength="16" ng-model="data.FullPan" ng-class="{'is-filled':data.FullPan}">
+							<label for="cardpan">Card Number</label>
+						</div>
+						<div class="form__item">
+							<input type="text" id="mobilenumber" autocomplete="off" ng-model="data.PhoneNumber" ng-class="{'is-filled':data.PhoneNumber}">
+							<label for="mobilenumber">Mobile Number</label>
+						</div>
+						<div class="form__actions">
+							<input type="submit" class="btn btn--primary" value="Continue" ng-click="register()">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</ion-content>
+</ion-view>

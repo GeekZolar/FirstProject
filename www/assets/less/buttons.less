@@ -1,0 +1,56 @@
+// Buttons 
+.form__actions {
+	position: relative;
+	width: auto;
+	left: 0;
+	top: 0;
+	bottom: 15px;
+	&--right {
+		text-align: right;
+		float: left;
+		width: 100%;
+	}
+}
+.btn {
+	font-size: 15px;
+	height: 45px;
+	width: 100%;
+	border: none;
+	color: #fff;
+	margin: 15px 0 0;
+	&--block {
+		display: block;
+		width: 100%;
+	}
+	&--primary {
+		background: #dd4f05;
+		color: #fff;
+	}
+	&--secondary {
+		background: none;
+		color: #dd4f05;
+		border: 3px solid #dd4f05;
+	}
+	&--link {
+		color: #fff;
+		text-decoration: none;
+	}
+	&--inline {
+		width: auto;
+		height: auto;
+	}
+	&--confirm {
+		color: #3e4456;
+	}
+	&--cancel {
+		color: #dd4f05;
+	}
+	&--1-2 {
+		width: 49.5%;
+		float: left;
+		margin: 0 0 0 1%;
+		&:first-child {
+			margin: 0;
+		}
+	}
+}
